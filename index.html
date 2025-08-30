@@ -134,34 +134,44 @@
 </a>
       </div>
       <div class="grid md:grid-cols-2 gap-6 mt-6">
-        <!-- Episode Card 1 (replace link) -->
-        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
-          <div class="aspect-video bg-slate-100 flex items-center justify-center">
-            <a href="https://youtu.be/8cYvf71KcZ8?si=cs1VrQlJBKSLrFhB" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-              <i data-lucide="play" class="w-4 h-4"></i> Play 12:03
-            </a>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold">Episode 1 — Ar‑Rahman & Ar‑Raheem</h3>
-            <p class="text-sm text-slate-600 mt-1">Call‑and‑response songs • Coloring page included</p>
-          </div>
-        </article>
+  <!-- Episode Card 1 — with YouTube thumbnail -->
+<article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+  <div class="relative aspect-video bg-slate-100 overflow-hidden">
+    <!-- Thumbnail -->
+    <img
+      src="https://img.youtube.com/vi/8cYvf71KcZ8&t=2s/hqdefault.jpg"
+      alt="Episode 1 thumbnail — Ar-Rahman & Ar-Raheem"
+      class="w-full h-full object-cover"
+    />
+    <!-- Play overlay link -->
+    <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="absolute inset-0 flex items-center justify-center">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold shadow hover:bg-blue-700">
+        <i class="fas fa-play"></i> Play 12:03
+      </span>
+      <span class="sr-only">Play Episode 1 on YouTube</span>
+    </a>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold">Episode 1 — Ar-Rahman & Ar-Raheem</h3>
+    <p class="text-sm text-slate-600 mt-1">Call-and-response songs • Coloring page included</p>
+  </div>
+</article>
 
-        <!-- Episode Card 2 (replace link) -->
-        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
-          <div class="aspect-video bg-slate-100 flex items-center justify-center">
-            <a href="YT_LINK_EP2" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-              <i data-lucide="play" class="w-4 h-4"></i> Play 15:00
-            </a>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold">Episode 2 — Al‑‘Aleem & Al‑Hakeem</h3>
-            <p class="text-sm text-slate-600 mt-1">Storytime + activity sheet • Teacher notes</p>
-          </div>
-        </article>
-      </div>
+<!-- Episode Card 2 — Coming soon -->
+<article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+  <div class="relative aspect-video bg-slate-100">
+    <!-- Optional placeholder image -->
+    <!-- <img src="images/placeholder-episode2.jpg" class="w-full h-full object-cover" alt=""> -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <span class="px-4 py-2 rounded-xl bg-slate-300 text-slate-800 font-semibold">Coming soon</span>
     </div>
-  </section>
+  </div>
+  <div class="p-5">
+    <h3 class="font-bold">Episode 2 — Al-‘Aleem & Al-Hakeem</h3>
+    <p class="text-sm text-slate-600 mt-1">Storytime + activity sheet • Teacher notes</p>
+  </div>
+</article>
+
 
   <!-- Curriculums & Printables -->
   <section id="curriculums" class="py-14">
