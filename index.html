@@ -274,22 +274,43 @@
       <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
         <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
         <p class="mt-2 text-slate-700">Booking, curriculum questions, collaborations</p>
-        <!-- Form action is a placeholder; replace with Formspree/Tally/Google Form endpoint -->
-        <form class="mt-6 grid gap-4" action="#" method="POST">
-          <div class="grid md:grid-cols-2 gap-4">
-            <input required class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your name" name="name" />
-            <input required type="email" class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your email" name="email" />
-          </div>
-          <input class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Organization (optional)" name="org" />
-          <textarea required class="w-full rounded-xl border border-slate-300 px-3 py-2 min-h-[120px]" placeholder="Message" name="message"></textarea>
-          <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-            <i data-lucide="mail" class="w-4 h-4"></i> Send Message
-          </button>
-          <p class="text-xs text-slate-500">Or email us: <a href="mailto:shamsandlaylah@gmail.com" class="underline">shamsandlaylah@gmail.com</a></p>
-        </form>
-      </div>
-    </div>
-  </section>
+      <form class="mt-6 grid gap-4" 
+      action="https://formspree.io/f/xzzagaqb" 
+      method="POST">
+  
+  <!-- Honeypot (spam protection) -->
+  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <input required 
+           class="w-full rounded-xl border border-slate-300 px-3 py-2" 
+           placeholder="Your name" 
+           name="name" />
+
+    <input required type="email" 
+           class="w-full rounded-xl border border-slate-300 px-3 py-2" 
+           placeholder="Your email" 
+           name="email" />
+  </div>
+
+  <input class="w-full rounded-xl border border-slate-300 px-3 py-2" 
+         placeholder="Organization (optional)" 
+         name="organization" />
+
+  <textarea required 
+            class="w-full rounded-xl border border-slate-300 px-3 py-2 min-h-[120px]" 
+            placeholder="Message" 
+            name="message"></textarea>
+
+  <!-- Optional subject line -->
+  <input type="hidden" name="_subject" value="New message from Shams & Laylah website">
+
+  <button type="submit" 
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
+    <i data-lucide="mail" class="w-4 h-4"></i> Send Message
+  </button>
+</form>
+
 
   <!-- Footer -->
   <footer class="py-10 border-t border-slate-200 bg-white/70">
