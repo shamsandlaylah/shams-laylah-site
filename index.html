@@ -73,44 +73,136 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-200/60 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-16 -left-16 w-72 h-72 bg-orange-200/60 rounded-full blur-3xl"></div>
+  <section class="relative overflow-hidden bg-gradient-to-r from-[#F7E8D7] via-[#F8EFE5] to-[#DCEBFF]">
+  <div class="max-w-6xl mx-auto px-4 py-14 md:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <!-- LEFT: Copy + CTAs -->
       <div>
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-          Joyful puppet stories that help kids <span class="text-brand-orange">know</span> & <span class="text-brand-blue">love</span> Allah
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          Joyful puppet stories that<br class="hidden md:block" />
+          help kids <span class="text-orange-500">know</span> &amp; <span class="text-blue-600">love</span> Allah
         </h1>
-        <p class="mt-4 text-lg text-slate-700">Circle-time friendly episodes, coloring pages, and printable curriculums for homes, schools, and masajid.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#episodes" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-            <i data-lucide="play" class="w-4 h-4"></i> Watch Episodes
+
+        <p class="mt-5 text-lg text-slate-700 max-w-xl">
+          Circle-time friendly episodes, coloring pages, and printable curriculums for homes, schools, and masajid.
+        </p>
+
+        <!-- GEM shortlist micro-proof -->
+        <div class="mt-4 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/60 px-4 py-2 text-sm text-slate-800">
+          <span class="font-semibold">✨ Shortlisted to exhibit at GEM Summit</span>
+          <span class="text-slate-500 hidden sm:inline">• global Muslim changemakers</span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a href="#episodes"
+             class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold shadow-sm hover:bg-blue-700 transition">
+            ▶ Watch Episodes
           </a>
-          <a href="#curriculums" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 font-semibold hover:border-slate-300">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Browse Curriculums
+          <a href="#curriculums"
+             class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white/70 px-5 py-3 text-slate-900 font-semibold hover:bg-white transition">
+            Browse Curriculums
           </a>
         </div>
-        <div class="mt-6 flex items-center gap-4 text-sm text-slate-600">
-          <div class="flex items-center gap-2"><i data-lucide="youtube" class="w-4 h-4"></i> New episodes monthly</div>
-          <div class="flex items-center gap-2"><i data-lucide="calendar-days" class="w-4 h-4"></i> Live shows: 25 mins</div>
+
+        <!-- Secondary links (book + sponsor) -->
+        <div class="mt-4 flex flex-wrap gap-4 text-sm">
+          <a href="#packages" class="font-semibold text-slate-900 hover:text-blue-600 transition">
+            Book for schools & masajid →
+          </a>
+          <a href="/sponsor" class="font-semibold text-slate-900 hover:text-orange-600 transition">
+            Sponsor our GEM showcase →
+          </a>
+        </div>
+
+        <!-- Trusted by row -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl bg-white/70 border border-white/50 px-4 py-3">
+            <div class="text-xs text-slate-500">Community trust</div>
+            <div class="font-bold text-slate-900">Selected for Halal Fest</div>
+            <div class="text-xs text-slate-500 mt-1">Family-friendly live programming</div>
+          </div>
+          <div class="rounded-xl bg-white/70 border border-white/50 px-4 py-3">
+            <div class="text-xs text-slate-500">Designed for</div>
+            <div class="font-bold text-slate-900">Ages 3–10</div>
+            <div class="text-xs text-slate-500 mt-1">Circle-time friendly</div>
+          </div>
+          <div class="rounded-xl bg-white/70 border border-white/50 px-4 py-3">
+            <div class="text-xs text-slate-500">What parents say</div>
+            <div class="font-bold text-slate-900">“My kids ask daily.”</div>
+            <div class="text-xs text-slate-500 mt-1">Real families, real joy</div>
+          </div>
+        </div>
+
+        <!-- Mini testimonials -->
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-4">
+            <div class="text-sm text-slate-800">“Finally Islamic learning that feels joyful.”</div>
+            <div class="mt-2 text-xs text-slate-500">— Parent</div>
+          </div>
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-4">
+            <div class="text-sm text-slate-800">“Perfect for circle time and assemblies.”</div>
+            <div class="mt-2 text-xs text-slate-500">— Teacher</div>
+          </div>
+          <div class="rounded-2xl border border-white/60 bg-white/70 p-4">
+            <div class="text-sm text-slate-800">“My kids remember the Names because of the songs!”</div>
+            <div class="mt-2 text-xs text-slate-500">— Sunday School Parent</div>
+          </div>
         </div>
       </div>
 
-      <div>
-        <div class="relative">
-          <div class="aspect-[4/3] rounded-3xl bg-white shadow-soft border border-orange-100 flex items-center justify-center">
-            <div class="text-center p-8">
-              <div class="aspect-[16/9] rounded-3xl bg-white shadow-xl border border-orange-100 overflow-hidden flex items-center justify-center">
-                <img src="shams-laylah.png" alt="Shams & Laylah" class="w-full h-full object-contain">
-              </div>
+      <!-- RIGHT: Video / Image Card -->
+      <div class="relative">
+        <div class="rounded-3xl bg-white/80 border border-white/70 shadow-sm p-6">
+          <div class="relative rounded-2xl overflow-hidden bg-slate-100">
+            <!-- OPTION A (Recommended): Self-hosted MP4 loop (fast + clean) -->
+            <video
+              class="w-full h-auto block"
+              autoplay
+              muted
+              loop
+              playsinline
+              poster="/assets/hero-poster.jpg"
+            >
+              <!-- Replace with your MP4 in your repo -->
+              <source src="/assets/hero-reel.mp4" type="video/mp4" />
+            </video>
+
+            <!-- Gradient overlay -->
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+            <!-- Play overlay (opens modal link) -->
+            <button
+              type="button"
+              data-open-video
+              class="absolute inset-0 grid place-items-center"
+              aria-label="Play video"
+            >
+              <span class="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 font-semibold text-slate-900 shadow-md hover:bg-white transition">
+                ▶ Watch a clip
+              </span>
+            </button>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between">
+            <div class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1 text-sm text-slate-700">
+              Family-friendly • Ages 3–10
+            </div>
+
+            <div class="text-sm text-slate-600">
+              Live shows + printables
             </div>
           </div>
-          <div class="absolute -bottom-3 -left-3 bg-white rounded-2xl px-3 py-2 shadow border text-sm">Family-friendly • Ages 3–10</div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+          <!-- Reel thumbnails (quick trust + tap-to-watch) -->
+          <div class="mt-5">
+            <div class="text-xs font-semibold text-slate-500 mb-2">From our Instagram</div>
+            <div class="grid grid-cols-3 gap-3">
+              <!-- Replace href with your IG reel URLs (or YouTube Shorts links) -->
+              <a href="YOUR_REEL_URL_1" target="_blank" rel="noopener noreferrer"
+                 class="group rounded-xl overflow-hidden border border-slate-200 bg-slate-100 hover:shado
+
 
   <!-- About / Features -->
   <section id="about" class="py-10 md:py-14">
