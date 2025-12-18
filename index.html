@@ -390,201 +390,336 @@
     </div>
   </section>
 
-  <!-- Booking -->
-  <!-- Packages & Rates -->
-  <section id="packages" class="mx-auto max-w-5xl mt-10">
-    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div class="px-6 py-4 border-b border-slate-200 flex items-center gap-2">
-        <svg class="w-5 h-5 text-slate-600" viewBox="0 0 24 24" fill="none">
-          <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <h2 class="text-lg font-semibold text-slate-800">Packages & Rates</h2>
+ <section id="booking" class="max-w-5xl mx-auto px-4 py-14">
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <!-- Header -->
+    <div class="px-6 py-5 border-b border-slate-200 flex items-center gap-3">
+      <div class="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-bold">S&L</div>
+      <div>
+        <h2 class="text-xl font-semibold text-slate-900">Packages & Rates</h2>
+        <p class="text-sm text-slate-600">Designed for schools, masajid, and family programs. Flat-rate packages (no per-child fees).</p>
       </div>
+    </div>
 
-      <div class="px-4 sm:px-6 py-4 overflow-x-auto">
-        <table class="w-full text-left text-sm">
-          <thead class="text-slate-600">
-            <tr class="border-b border-slate-200">
-              <th class="py-3 pr-4">Package</th>
-              <th class="py-3 pr-4">Description</th>
-              <th class="py-3 pr-4">Suggested Rate</th>
-              <th class="py-3">Notes</th>
+    <!-- Packages Table -->
+    <div class="px-6 py-6">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-sm text-slate-600 border-b border-slate-200">
+              <th class="py-3 pr-4 font-medium">Package</th>
+              <th class="py-3 pr-4 font-medium">Description</th>
+              <th class="py-3 pr-4 font-medium whitespace-nowrap">Suggested Rate</th>
+              <th class="py-3 font-medium">Notes</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr>
-              <td class="py-3 pr-4 font-semibold">Single Show</td>
-              <td class="py-3 pr-4">
-                One 25-minute interactive puppet show for <strong>one audience</strong> (mixed ages OK), up to ~150 kids
-              </td>
-              <td class="py-3 pr-4 font-extrabold">$350</td>
-              <td class="py-3 text-slate-600">Includes short Q&amp;A or meet &amp; greet</td>
-            </tr>
-            <tr>
-              <td class="py-3 pr-4 font-semibold">Back-to-Back Shows</td>
-              <td class="py-3 pr-4">
-                Two 25-minute shows for <strong>two audiences</strong> in the same visit; same setup/day (mixed or different ages)
-              </td>
-              <td class="py-3 pr-4 font-extrabold">$600 total</td>
-              <td class="py-3 text-slate-600">Great for splitting large enrollment or schedule blocks</td>
-            </tr>
-            <tr>
-              <td class="py-3 pr-4 font-semibold">Full-Day Program</td>
-              <td class="py-3 pr-4">
-                Up to four shows <em>or</em> two shows plus themed workshops, storytime, or coloring activity rotations
-              </td>
-              <td class="py-3 pr-4 font-extrabold">$850–$950</td>
-              <td class="py-3 text-slate-600">Best for large schools/festivals wanting full-day engagement</td>
-            </tr>
-          </tbody>
+          <tbody id="packagesTable" class="text-sm text-slate-800"></tbody>
         </table>
+      </div>
 
-        <p class="mt-3 text-sm text-slate-600">
-          🧳 <span class="font-semibold">Travel Costs:</span> For out-of-state bookings, travel and lodging are added to the estimate. Typical travel fee ranges
-          <span class="font-semibold">$350–$450</span>, depending on location and timing.
+      <div class="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-700">
+        <p class="font-medium text-slate-900">Travel</p>
+        <p class="mt-1">For out-of-area bookings, travel/lodging are added. Typical travel fee range: <span class="font-semibold">$350–$450</span> (varies by location & timing).</p>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#quote" class="inline-flex items-center justify-center rounded-xl bg-orange-500 px-5 py-3 text-white font-semibold hover:bg-orange-600 transition">
+          Request a Quote
+        </a>
+        <a href="#quote" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-slate-900 font-semibold hover:bg-slate-50 transition">
+          Create a Quick Estimate
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote Estimator -->
+  <div id="quote" class="mt-10 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="px-6 py-5 border-b border-slate-200">
+      <h3 class="text-xl font-semibold text-slate-900">Create a Quote (Quick Estimator)</h3>
+      <p class="text-sm text-slate-600 mt-1">This is a quick estimate. Final quote depends on schedule, audience size, date, and location.</p>
+    </div>
+
+    <div class="px-6 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Left: Package + Add-ons -->
+      <div>
+        <label for="packageSelect" class="block text-sm font-semibold text-slate-900">Package</label>
+        <select id="packageSelect" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-900">
+        </select>
+        <p id="packageHint" class="mt-2 text-sm text-slate-600"></p>
+
+        <div class="mt-6">
+          <h4 class="text-sm font-semibold text-slate-900">Add-ons</h4>
+          <div id="addonsList" class="mt-3 space-y-3"></div>
+        </div>
+      </div>
+
+      <!-- Right: Travel + Total -->
+      <div>
+        <label for="travelFee" class="block text-sm font-semibold text-slate-900">Travel Fee (flat)</label>
+        <div class="mt-2 flex items-center gap-3">
+          <span class="text-slate-700 font-semibold">$</span>
+          <input id="travelFee" type="number" min="0" step="25" value="0"
+                 class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-900" />
+        </div>
+        <p class="mt-2 text-sm text-slate-600">Typical out-of-area range: $350–$450.</p>
+
+        <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-700 font-semibold">Estimated Total</span>
+            <span id="totalPrice" class="text-3xl font-extrabold text-slate-900">$0</span>
+          </div>
+          <div id="breakdown" class="mt-3 text-sm text-slate-700"></div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button id="emailQuoteBtn" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700 transition">
+            Email Me This Quote
+          </button>
+          <a href="#booking" class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-slate-900 font-semibold hover:bg-slate-50 transition">
+            Review Packages
+          </a>
+        </div>
+
+        <p class="mt-3 text-xs text-slate-500">
+          Note: Rates can flex for multiple audiences, longer blocks, or special programming.
         </p>
-
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a
-            href="mailto:info@shamsandlaylah.com?subject=Booking%20Inquiry%20—%20Shams%20%26%20Laylah"
-            class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-white font-semibold shadow bg-brand-orange hover:bg-orange-600"
-          >
-            Request a Quote
-          </a>
-          <a
-            href="#builder"
-            class="inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold border border-slate-300 bg-white hover:border-slate-400"
-          >
-            Create a Quick Estimate
-          </a>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Quick Estimator (Tailwind + tiny JS) -->
-  <section id="builder" class="mx-auto max-w-5xl mt-8">
-    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div class="px-6 py-4 border-b border-slate-200 flex items-center gap-2">
-        <svg class="w-5 h-5 text-slate-600" viewBox="0 0 24 24" fill="none">
-          <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <h3 class="text-lg font-semibold text-slate-800">Create a Quote (Quick Estimator)</h3>
+<script>
+  // -----------------------------
+  // 1) EDIT YOUR PACKAGES HERE
+  // -----------------------------
+  const PACKAGES = [
+    {
+      id: "single-show",
+      name: "Single Live Puppet Experience (45-min block)",
+      price: 350,
+      rateLabel: "$350",
+      desc: "25-minute interactive show + ~15-min meet & greet/Q&A + setup/cleanup buffer (1 audience).",
+      notes: "Best for one assembly or one group (mixed ages OK).",
+      hint: "Includes 25-min show + meet & greet/Q&A within a 45-minute school/masjid block."
+    },
+    {
+      id: "back-to-back",
+      name: "Back-to-Back Shows (2 audiences)",
+      price: 600,
+      rateLabel: "$600 total",
+      desc: "Two 25-minute shows in the same visit (same setup/day). Ideal for splitting by age groups.",
+      notes: "Great for large enrollment or schedule blocks.",
+      hint: "Two separate audiences back-to-back. Add-ons can be applied once (shared) or per group (optional)."
+    },
+    {
+      id: "half-day",
+      name: "Half-Day Experience (2–3 hours)",
+      price: 650,
+      rateLabel: "$650",
+      desc: "Live show + one themed learning lab + small activity station rotation (e.g., coloring/dua corner).",
+      notes: "Great for school enrichment or masjid weekend program.",
+      hint: "A compact, premium experience—show + learning + hands-on activity."
+    },
+    {
+      id: "full-day",
+      name: "Full-Day Program (school/masjid)",
+      price: 900,
+      rateLabel: "$850–$950",
+      desc: "Up to four shows OR two shows + themed workshops/storytime/activity rotations throughout the day.",
+      notes: "Best for full-day engagement and maximum reach.",
+      hint: "Full-day flexes based on schedule, number of audiences, and activity rotations."
+    },
+    {
+      id: "family-night",
+      name: "Masjid Family Night (evening program)",
+      price: 450,
+      rateLabel: "$450",
+      desc: "Evening show + sing-along + family reflection/dua + photo/meet & greet.",
+      notes: "Perfect for Friday/Saturday family nights.",
+      hint: "A warm community-focused evening program for families."
+    }
+  ];
+
+  // -----------------------------
+  // 2) EDIT YOUR ADD-ONS HERE
+  // (You can add/remove freely)
+  // -----------------------------
+  const ADDONS = [
+    {
+      id: "names-lab",
+      label: "Names of Allah Discovery Lab (mini workshop) +$125",
+      price: 125,
+      note: "Hands-on lesson + printable activity sheet."
+    },
+    {
+      id: "character-workshop",
+      label: "Character Builders Workshop +$150",
+      price: 150,
+      note: "Kindness, patience, honesty, gratitude—interactive scenarios with Shams & Laylah."
+    },
+    {
+      id: "mini-book",
+      label: "Make-Your-Own Mini Book Activity +$150",
+      price: 150,
+      note: "Kids create a mini booklet: 'Allah Is…' / 'When I am kind, I…'"
+    },
+    {
+      id: "craft-kits",
+      label: "Craft Kits (per ~25 students) +$75",
+      price: 75,
+      note: "Optional physical kits; multiples can be added later in final quote."
+    },
+    {
+      id: "coloring-station",
+      label: "Color With Shams & Laylah Station +$50",
+      price: 50,
+      note: "Exclusive coloring pages; calming station add-on."
+    },
+    {
+      id: "photo-corner",
+      label: "Photo / Meet & Greet Upgrade +$50",
+      price: 50,
+      note: "Extended meet & greet/photo time (great for events)."
+    }
+  ];
+
+  // -----------------------------
+  // RENDER TABLE + UI
+  // -----------------------------
+  const packagesTable = document.getElementById("packagesTable");
+  const packageSelect = document.getElementById("packageSelect");
+  const packageHint = document.getElementById("packageHint");
+  const addonsList = document.getElementById("addonsList");
+  const travelFeeInput = document.getElementById("travelFee");
+  const totalPriceEl = document.getElementById("totalPrice");
+  const breakdownEl = document.getElementById("breakdown");
+  const emailQuoteBtn = document.getElementById("emailQuoteBtn");
+
+  function money(n) {
+    const num = Number(n) || 0;
+    return "$" + num.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  }
+
+  // Table rows
+  PACKAGES.forEach(pkg => {
+    const tr = document.createElement("tr");
+    tr.className = "border-b border-slate-100";
+    tr.innerHTML = `
+      <td class="py-4 pr-4 font-semibold text-slate-900">${pkg.name}</td>
+      <td class="py-4 pr-4 text-slate-700">${pkg.desc}</td>
+      <td class="py-4 pr-4 font-extrabold text-slate-900 whitespace-nowrap">${pkg.rateLabel}</td>
+      <td class="py-4 text-slate-600">${pkg.notes}</td>
+    `;
+    packagesTable.appendChild(tr);
+  });
+
+  // Package dropdown
+  PACKAGES.forEach(pkg => {
+    const opt = document.createElement("option");
+    opt.value = pkg.id;
+    opt.textContent = `${pkg.name} (${money(pkg.price)})`;
+    packageSelect.appendChild(opt);
+  });
+
+  // Add-ons checkboxes
+  ADDONS.forEach(a => {
+    const wrap = document.createElement("label");
+    wrap.className = "flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 cursor-pointer hover:bg-slate-50";
+    wrap.innerHTML = `
+      <input type="checkbox" data-addon="${a.id}" class="mt-1 h-4 w-4 rounded border-slate-300" />
+      <div>
+        <div class="font-semibold text-slate-900">${a.label}</div>
+        <div class="text-xs text-slate-500 mt-1">${a.note}</div>
       </div>
+    `;
+    addonsList.appendChild(wrap);
+  });
 
-      <form class="px-6 py-5 grid gap-6 md:grid-cols-2" onsubmit="event.preventDefault()">
-        <div>
-          <label for="pkg" class="block text-sm font-semibold text-slate-800 mb-2">Package</label>
-          <select id="pkg" class="w-full rounded-xl border border-slate-300 px-3 py-2">
-            <option value="single" data-price="350">Single Show — 1 audience ($350)</option>
-            <option value="btb" data-price="600">Back-to-Back — 2 audiences ($600)</option>
-            <option value="fullday" data-price="850" data-max="950">Full-Day Program — up to 4 shows ($850–$950)</option>
-          </select>
-          <p class="text-sm text-slate-600 mt-2">
-            Full-Day flexes up to $950 depending on schedule, activities, and total audiences.
-          </p>
-        </div>
+  function getSelectedPackage() {
+    return PACKAGES.find(p => p.id === packageSelect.value) || PACKAGES[0];
+  }
 
-        <div>
-          <label for="travel" class="block text-sm font-semibold text-slate-800 mb-2">Travel Fee (flat)</label>
-          <input
-            id="travel"
-            type="number"
-            min="0"
-            step="25"
-            value="400"
-            class="w-full rounded-xl border border-slate-300 px-3 py-2"
-          />
-          <p class="text-sm text-slate-600 mt-2">Typical out-of-state range $350–$450.</p>
-        </div>
+  function getSelectedAddons() {
+    const checked = Array.from(document.querySelectorAll('input[type="checkbox"][data-addon]:checked'));
+    const ids = checked.map(c => c.getAttribute("data-addon"));
+    return ADDONS.filter(a => ids.includes(a.id));
+  }
 
-        <div class="md:col-span-2">
-          <p class="text-sm font-semibold text-slate-800 mb-2">Add-ons</p>
-          <div class="flex flex-col gap-2">
-            <label class="inline-flex items-center gap-2">
-              <input id="workshops" type="checkbox" class="size-4 rounded border-slate-300" />
-              <span>Workshops/Activity blocks (Full-Day only) <span class="text-slate-600 text-sm">+ $100</span></span>
-            </label>
-            <label class="inline-flex items-center gap-2">
-              <input id="craftkits" type="checkbox" class="size-4 rounded border-slate-300" />
-              <span>Craft kits (per ~25 students) <span class="text-slate-600 text-sm">+ $75</span></span>
-            </label>
-          </div>
-        </div>
+  function calcTotal() {
+    const pkg = getSelectedPackage();
+    const addons = getSelectedAddons();
+    const travel = Number(travelFeeInput.value) || 0;
 
-        <div class="md:col-span-2">
-          <div class="rounded-xl border border-slate-200 p-4 flex items-center justify-between">
-            <strong class="text-slate-800">Estimated Total</strong>
-            <div id="total" class="text-lg font-extrabold">$0</div>
-          </div>
+    const addonsTotal = addons.reduce((sum, a) => sum + a.price, 0);
+    const total = pkg.price + addonsTotal + travel;
 
-          <div class="mt-3 flex flex-wrap gap-3">
-            <a
-              id="mailtoBtn"
-              class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-white font-semibold shadow bg-brand-blue hover:bg-blue-700"
-              href="#"
-            >
-              Email Me This Quote
-            </a>
-            <a
-              href="#packages"
-              class="inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold border border-slate-300 bg-white hover:border-slate-400"
-            >
-              Review Packages
-            </a>
-          </div>
+    totalPriceEl.textContent = money(total);
 
-          <p class="text-sm text-slate-600 mt-3">
-            This is a quick estimate. Final quote depends on exact schedule, student count, and dates.
-          </p>
-        </div>
-      </form>
-    </div>
-  </section>
+    const lines = [];
+    lines.push(`<div><span class="font-semibold">Package:</span> ${pkg.name} (${money(pkg.price)})</div>`);
+    if (addons.length) {
+      lines.push(`<div class="mt-2"><span class="font-semibold">Add-ons:</span></div>`);
+      lines.push(`<ul class="list-disc ml-5 mt-1 space-y-1">` + addons.map(a => `<li>${a.label.replace(/\+\$\d+/, "")} (${money(a.price)})</li>`).join("") + `</ul>`);
+      lines.push(`<div class="mt-1"><span class="font-semibold">Add-ons subtotal:</span> ${money(addonsTotal)}</div>`);
+    } else {
+      lines.push(`<div class="mt-2"><span class="font-semibold">Add-ons:</span> None</div>`);
+    }
+    lines.push(`<div class="mt-2"><span class="font-semibold">Travel fee:</span> ${money(travel)}</div>`);
 
-  <script>
-    (function () {
-      const pkg = document.getElementById('pkg');
-      const travel = document.getElementById('travel');
-      const workshops = document.getElementById('workshops');
-      const craftkits = document.getElementById('craftkits');
-      const totalEl = document.getElementById('total');
-      const mailtoBtn = document.getElementById('mailtoBtn');
+    breakdownEl.innerHTML = lines.join("");
+    packageHint.textContent = pkg.hint || "";
+  }
 
-      function basePrice() {
-        const opt = pkg.options[pkg.selectedIndex];
-        let p = Number(opt.dataset.price || 0);
-        if (pkg.value === 'fullday' && workshops.checked) {
-          p += 100;
-        }
-        if (craftkits.checked) {
-          p += 75;
-        }
-        return p;
-      }
-      function compute() {
-        const t = basePrice() + Number(travel.value || 0);
-        totalEl.textContent = '$' + t.toLocaleString();
-        const subject = encodeURIComponent('Shams & Laylah — Quick Quote Request');
-        const body = encodeURIComponent(
-          `Salaam!\n\nHere are the options I selected for a quick estimate:\n\n` +
-          `Package: ${pkg.options[pkg.selectedIndex].text}\n` +
-          `Workshops add-on: ${workshops.checked ? 'Yes (+$100)' : 'No'}\n` +
-          `Craft kits: ${craftkits.checked ? 'Yes (+$75)' : 'No'}\n` +
-          `Travel fee: $${Number(travel.value || 0)}\n\n` +
-          `Estimated total: $${t}\n\nPlease confirm availability and send a formal quote. JazakAllah khair!`
-        );
-        mailtoBtn.href = `mailto:info@shamsandlaylah.com?subject=${subject}&body=${body}`;
-      }
-      ['change', 'input'].forEach((ev) => {
-        pkg.addEventListener(ev, compute);
-        travel.addEventListener(ev, compute);
-        workshops.addEventListener(ev, compute);
-        craftkits.addEventListener(ev, compute);
-      });
-      compute();
-    })();
-  </script>
+  packageSelect.addEventListener("change", calcTotal);
+  travelFeeInput.addEventListener("input", calcTotal);
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.matches('input[type="checkbox"][data-addon]')) calcTotal();
+  });
+
+  // Email quote (mailto)
+  emailQuoteBtn.addEventListener("click", () => {
+    const pkg = getSelectedPackage();
+    const addons = getSelectedAddons();
+    const travel = Number(travelFeeInput.value) || 0;
+    const addonsTotal = addons.reduce((sum, a) => sum + a.price, 0);
+    const total = pkg.price + addonsTotal + travel;
+
+    const addonText = addons.length
+      ? addons.map(a => `- ${a.label.replace(/\+\$\d+/, "")} (${money(a.price)})`).join("\n")
+      : "- None";
+
+    const subject = encodeURIComponent("Shams & Laylah – Quick Estimate");
+    const body = encodeURIComponent(
+`Salaam,
+
+Here is my quick estimate request:
+
+Package:
+- ${pkg.name} (${money(pkg.price)})
+
+Add-ons:
+${addonText}
+
+Travel fee:
+- ${money(travel)}
+
+Estimated Total:
+- ${money(total)}
+
+Notes / preferred date & location:
+- (add details here)
+
+Website: https://ShamsAndLaylah.com
+`
+    );
+
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  });
+
+  // Initialize
+  calcTotal();
+</script>
 
   <!-- Contact -->
   <section id="contact" class="py-14">
