@@ -1,517 +1,296 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shams & Laylah — Joyful Puppet Stories</title>
+  <meta name="description" content="Joyful puppet stories that help kids know and love Allah. Episodes, curriculums, and live shows for ages 3–10." />
 
-  <!-- Tailwind -->
+  <!-- Tailwind via CDN (no build needed) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316',
+              blue: '#2563eb'
+            }
+          },
+          boxShadow: {
+            soft: '0 8px 24px rgba(0,0,0,0.08)'
+          },
+          borderRadius: {
+            '2xl': '1rem',
+            '3xl': '1.5rem'
+          }
+        }
+      }
+    }
+  </script>
 
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Favicon placeholder (replace with your logo) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23f59e0b'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='52' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* Smooth scrolling for in-page links */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-
-<body>
-  <!-- your existing code starts here -->
-<!-- =========================
-SHAMS & LAYLAH — HOMEPAGE (Tailwind)
-Sesame-street energy (bold, iconic, not copycat) + clean conversion flow
-Drop into your page and adjust links/IDs as needed.
-========================= -->
-
-<main class="min-h-screen bg-[#FBF6EF] text-slate-900">
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 border-b border-black/5 bg-[#FBF6EF]/85 backdrop-blur">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-      <a href="/" class="flex items-center gap-3">
-        <!-- Replace with your logo -->
-        <div class="h-10 w-10 rounded-2xl bg-white shadow-sm ring-1 ring-black/5 grid place-items-center font-extrabold">
-          S&L
-        </div>
-        <div class="leading-tight">
-          <div class="font-extrabold tracking-tight">Shams &amp; Laylah</div>
-          <div class="text-xs text-slate-600 -mt-0.5">Faith-centered storytelling for kids</div>
-        </div>
+<body class="min-h-screen bg-gradient-to-b from-orange-50 via-white to-blue-50 text-slate-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-orange-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 shadow"></div>
+        <div class="font-bold text-lg tracking-tight">Shams & Laylah</div>
       </a>
-
-      <nav class="hidden items-center gap-6 text-sm font-semibold text-slate-800 md:flex">
-        <a href="#about" class="hover:text-blue-700 transition">About</a>
-        <a href="#episodes" class="hover:text-blue-700 transition">Episodes</a>
-        <a href="#live" class="hover:text-blue-700 transition">Live Programs</a>
-        <a href="#partners" class="hover:text-blue-700 transition">Partners</a>
-        <a href="#contact" class="hover:text-blue-700 transition">Contact</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="hover:text-brand-orange" href="#about">About</a>
+        <a class="hover:text-brand-orange" href="#episodes">Episodes</a>
+        <a class="hover:text-brand-orange" href="#curriculums">Curriculums</a>
+        <a class="hover:text-brand-orange" href="#booking">Book a Live Show</a>
+        <a class="hover:text-brand-orange" href="#contact">Contact</a>
       </nav>
-
-      <div class="flex items-center gap-2">
-        <a href="#episodes"
-           class="hidden sm:inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-extrabold text-slate-900 hover:text-blue-700 transition">
-          Watch
-        </a>
-        <a href="#live"
-           class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-extrabold text-white shadow-sm hover:bg-slate-800 transition">
-          Book a Live Program
-        </a>
-      </div>
+      <a href="#booking" class="hidden sm:inline-flex px-3 py-2 rounded-xl bg-brand-orange text-white text-sm font-semibold shadow hover:bg-orange-600">Book a Live Show</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <!-- iconic background: calm + confident -->
-    <div class="absolute inset-0 -z-10">
-      <div class="absolute -top-28 -right-24 h-80 w-80 rounded-full bg-[#DCEBFF]/70 blur-3xl"></div>
-      <div class="absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#F7D7B8]/55 blur-3xl"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_15%,rgba(255,255,255,0.9),transparent_55%)]"></div>
-    </div>
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-72 h-72 bg-blue-200/60 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-16 -left-16 w-72 h-72 bg-orange-200/60 rounded-full blur-3xl"></div>
 
-    <div class="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:px-6 lg:px-8 md:pt-20 md:pb-16">
-      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
-        <div class="lg:col-span-7">
-          <!-- quiet badge -->
-          <div class="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-slate-800 ring-1 ring-black/5 shadow-sm">
-            <span aria-hidden="true">✨</span>
-            <span>Joyful, faith-honoring children’s media</span>
-            <span class="hidden sm:inline text-slate-500">• ages 3–10</span>
-          </div>
-
-          <h1 class="mt-6 text-4xl font-extrabold tracking-tight leading-[1.02] sm:text-5xl lg:text-6xl">
-            Joyful Islamic storytelling
-            <span class="block mt-2">
-              for <span class="text-blue-700">growing hearts</span>
-            </span>
-          </h1>
-
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-slate-700">
-            Shams &amp; Laylah helps children build iman, character, and confidence through stories they love —
-            at home, in schools, and in masajid.
-          </p>
-
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#watch"
-               class="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-700 px-6 py-3 text-white font-extrabold shadow-sm hover:bg-blue-800 transition">
-              ▶ Watch Shams &amp; Laylah
-            </a>
-            <a href="#live"
-               class="inline-flex items-center justify-center rounded-2xl px-1 py-3 text-sm font-extrabold text-slate-900 hover:text-blue-700 transition">
-              For schools &amp; masajid →
-            </a>
-          </div>
-
-          <!-- “Sesame energy” but clean: 3 tiny proof bullets, not cards -->
-          <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div class="flex items-start gap-3">
-              <div class="mt-0.5 h-9 w-9 rounded-2xl bg-white shadow-sm ring-1 ring-black/5 grid place-items-center font-extrabold text-blue-700">
-                ✓
-              </div>
-              <div>
-                <div class="font-extrabold">Trusted in community</div>
-                <div class="text-sm text-slate-600">Schools • masajid • events</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="mt-0.5 h-9 w-9 rounded-2xl bg-white shadow-sm ring-1 ring-black/5 grid place-items-center font-extrabold text-orange-600">
-                ★
-              </div>
-              <div>
-                <div class="font-extrabold">Ages 3–10</div>
-                <div class="text-sm text-slate-600">Family-friendly</div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="mt-0.5 h-9 w-9 rounded-2xl bg-white shadow-sm ring-1 ring-black/5 grid place-items-center font-extrabold text-slate-900">
-                ☾
-              </div>
-              <div>
-                <div class="font-extrabold">Asma’ul Husna</div>
-                <div class="text-sm text-slate-600">Faith + character</div>
-              </div>
-            </div>
-          </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          Joyful puppet stories that help kids <span class="text-brand-orange">know</span> & <span class="text-brand-blue">love</span> Allah
+        </h1>
+        <p class="mt-4 text-lg text-slate-700">Circle-time friendly episodes, coloring pages, and printable curriculums for homes, schools, and masajid.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#episodes" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
+            <i data-lucide="play" class="w-4 h-4"></i> Watch Episodes
+          </a>
+          <a href="#curriculums" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 font-semibold hover:border-slate-300">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Browse Curriculums
+          </a>
         </div>
+        <div class="mt-6 flex items-center gap-4 text-sm text-slate-600">
+          <div class="flex items-center gap-2"><i data-lucide="youtube" class="w-4 h-4"></i> New episodes monthly</div>
+          <div class="flex items-center gap-2"><i data-lucide="calendar-days" class="w-4 h-4"></i> Live shows: 25 mins</div>
+        </div>
+      </div>
 
-        <!-- HERO ART (simple, iconic frame) -->
-        <div class="lg:col-span-5">
-          <div class="rounded-[28px] bg-white/80 p-4 sm:p-5 shadow-sm ring-1 ring-black/5">
-            <div class="rounded-2xl bg-slate-100 ring-1 ring-slate-200 overflow-hidden">
-              <!-- Replace this with a brand illustration, or thumbnail -->
-              <div class="aspect-[4/3] bg-[radial-gradient(600px_circle_at_30%_30%,rgba(220,235,255,0.9),transparent_55%)] grid place-items-center">
-                <div class="text-center px-6">
-                  <div class="text-sm font-extrabold text-slate-900">Shams &amp; Laylah</div>
-                  <div class="mt-2 text-sm text-slate-600">
-                    Character-building stories • songs • live programs
-                  </div>
-                  <a href="#watch"
-                     class="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-2.5 text-sm font-extrabold text-white hover:bg-slate-800 transition">
-                    ▶ Watch a clip
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 flex flex-wrap items-center gap-2 text-sm text-slate-700">
-              <span class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 ring-1 ring-slate-200">
-                Family-friendly • Ages 3–10
-              </span>
-              <span class="text-slate-600">• Live programs + printables</span>
+      <div>
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl bg-white shadow-soft border border-orange-100 flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="text-6xl">☀️💙</div>
+              <p class="mt-4 font-semibold">Add your character art here</p>
+              <p class="text-sm text-slate-600">Shams (orange) & Laylah (blue)</p>
             </div>
           </div>
+          <div class="absolute -bottom-3 -left-3 bg-white rounded-2xl px-3 py-2 shadow border text-sm">Family‑friendly • Ages 3–10</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WATCH (VIDEO CENTERPIECE) -->
-  <section id="watch" class="py-12 md:py-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Watch Shams &amp; Laylah</h2>
-          <p class="mt-2 text-slate-600 max-w-2xl">
-            Stories that build iman and character — made for little hearts, trusted by parents and educators.
-          </p>
-        </div>
-        <a id="episodes" href="#episodes"
-           class="hidden sm:inline-flex items-center justify-center rounded-2xl bg-white px-4 py-2 text-sm font-extrabold text-slate-900 ring-1 ring-black/5 hover:text-blue-700 transition">
-          Browse Episodes →
-        </a>
+  <!-- About / Features -->
+  <section id="about" class="py-10 md:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl bg-white/80 backdrop-blur border border-slate-100 p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+        <h3 class="mt-4 font-bold text-lg">Faith‑filled Learning</h3>
+        <p class="mt-1 text-slate-600 text-sm">Gentle, age‑appropriate lessons rooted in the Names of Allah (Asma’ul Husna).</p>
       </div>
+      <div class="rounded-3xl bg-white/80 backdrop-blur border border-slate-100 p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center"><i data-lucide="sparkles" class="w-6 h-6"></i></div>
+        <h3 class="mt-4 font-bold text-lg">Puppet Story Magic</h3>
+        <p class="mt-1 text-slate-600 text-sm">Shams (orange) & Laylah (blue) make big concepts simple, silly, and sweet.</p>
+      </div>
+      <div class="rounded-3xl bg-white/80 backdrop-blur border border-slate-100 p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+        <h3 class="mt-4 font-bold text-lg">Parent & Teacher Friendly</h3>
+        <p class="mt-1 text-slate-600 text-sm">Print‑ready coloring pages, lesson guides, and simple circle‑time flows.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="mt-6 rounded-[28px] bg-white p-3 sm:p-4 shadow-sm ring-1 ring-black/5">
-        <div class="relative overflow-hidden rounded-2xl bg-black">
-          <div class="aspect-video">
-            <iframe
-              class="h-full w-full"
-              src="https://www.youtube.com/embed/gZME8AX9IFk"
-              title="Shams & Laylah — Watch"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+  <!-- Episodes -->
+  <section id="episodes" class="py-14 border-t border-orange-100 bg-white/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Watch Episodes</h2>
+        <a href="YT_CHANNEL_LINK" class="hidden md:inline text-sm font-semibold text-brand-blue hover:underline flex items-center gap-2"><i data-lucide="youtube" class="w-4 h-4"></i> Visit our YouTube</a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <!-- Episode Card 1 (replace link) -->
+        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-video bg-slate-100 flex items-center justify-center">
+            <a href="YT_LINK_EP1" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
+              <i data-lucide="play" class="w-4 h-4"></i> Play 12:03
+            </a>
           </div>
-        </div>
-        <div class="mt-4 flex flex-wrap items-center justify-between gap-3 px-2 pb-2">
-          <div class="text-sm text-slate-700">
-            <span class="font-extrabold text-slate-900">Trusted</span> by families, schools, and masajid
+          <div class="p-5">
+            <h3 class="font-bold">Episode 1 — Ar‑Rahman & Ar‑Raheem</h3>
+            <p class="text-sm text-slate-600 mt-1">Call‑and‑response songs • Coloring page included</p>
           </div>
-          <a href="https://youtu.be/gZME8AX9IFk?si=0UX9_lDdxkIbx2Vd" target="_blank" rel="noopener"
-             class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2 text-sm font-extrabold text-white hover:bg-slate-800 transition">
-            Open on YouTube →
+        </article>
+
+        <!-- Episode Card 2 (replace link) -->
+        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-video bg-slate-100 flex items-center justify-center">
+            <a href="YT_LINK_EP2" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
+              <i data-lucide="play" class="w-4 h-4"></i> Play 15:00
+            </a>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold">Episode 2 — Al‑‘Aleem & Al‑Hakeem</h3>
+            <p class="text-sm text-slate-600 mt-1">Storytime + activity sheet • Teacher notes</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculums & Printables -->
+  <section id="curriculums" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Curriculums & Printables</h2>
+      <p class="mt-2 text-slate-700">Coloring pages, circle‑time guides, and lesson bundles. Instant digital download (PDF).</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <!-- Product 1 -->
+        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3] bg-gradient-to-br from-orange-100 to-blue-100 flex items-center justify-center">
+            <i data-lucide="book-open" class="w-8 h-8"></i>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold">Bundle 1: Names of Allah</h3>
+            <p class="text-sm text-slate-600 mt-1">Worksheets + coloring + teacher mini‑guide</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-semibold">$7.00</span>
+              <a href="PAYHIP_OR_GUMROAD_LINK" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-orange text-white text-sm font-semibold shadow hover:bg-orange-600">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Buy PDF
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2 (duplicate/adjust as needed) -->
+        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3] bg-gradient-to-br from-orange-100 to-blue-100 flex items-center justify-center">
+            <i data-lucide="book-open" class="w-8 h-8"></i>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold">Bundle 2: Circle Time Kit</h3>
+            <p class="text-sm text-slate-600 mt-1">Routine cards + dua posters + song prompts</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-semibold">$5.00</span>
+              <a href="PAYHIP_OR_GUMROAD_LINK" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-orange text-white text-sm font-semibold shadow hover:bg-orange-600">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Buy PDF
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+          <div class="aspect-[4/3] bg-gradient-to-br from-orange-100 to-blue-100 flex items-center justify-center">
+            <i data-lucide="book-open" class="w-8 h-8"></i>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold">Bundle 3: Coloring Mega Pack</h3>
+            <p class="text-sm text-slate-600 mt-1">30+ pages with simple outlines for ages 3–7</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-semibold">$6.00</span>
+              <a href="PAYHIP_OR_GUMROAD_LINK" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-brand-orange text-white text-sm font-semibold shadow hover:bg-orange-600">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Buy PDF
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="mt-3 text-xs text-slate-500">© Shams & Laylah, 2025. All rights reserved. Classroom reproduction permitted for a single teacher per purchase.</p>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="py-14 bg-gradient-to-b from-blue-50 to-white border-t border-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold">Book a Live Show</h2>
+        <p class="mt-2 text-slate-700">25‑minute puppet performance + meet & greet. Perfect for schools, masajid, and community events.</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+          <li>Focus: Names of Allah (Ar‑Rahman, Ar‑Raheem, Al‑‘Aleem, Al‑Hakeem)</li>
+          <li>Age range: 3–10 • Audience up to ~150 kids</li>
+          <li>Standard honorarium: $350 (U.S.)</li>
+        </ul>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="BOOKING_FORM_LINK" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-orange text-white font-semibold shadow hover:bg-orange-600">
+            <i data-lucide="ticket" class="w-4 h-4"></i> Request a Date
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 font-semibold hover:border-slate-300">
+            <i data-lucide="calendar-days" class="w-4 h-4"></i> Ask a question
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF (EDITORIAL STRIP) -->
-  <section class="py-10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="rounded-[28px] bg-white/70 ring-1 ring-black/5 shadow-sm px-6 py-8">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:items-center">
-          <div class="md:col-span-1">
-            <div class="text-sm font-extrabold text-slate-900">Loved by communities</div>
-            <div class="mt-2 text-sm text-slate-600">
-              Real feedback from schools and partners.
-            </div>
-          </div>
-
-          <div class="md:col-span-2 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <blockquote class="rounded-2xl bg-white px-5 py-4 ring-1 ring-slate-200">
-              <p class="text-sm leading-relaxed text-slate-700">
-                “Your educational approach combines fun with learning — all while respecting Islamic teachings.”
-              </p>
-              <footer class="mt-3 text-xs font-semibold text-slate-600">
-                — Nazia M. Jalali, M.Ed. • Principal, Furqaan Academy
-              </footer>
-            </blockquote>
-
-            <blockquote class="rounded-2xl bg-white px-5 py-4 ring-1 ring-slate-200">
-              <p class="text-sm leading-relaxed text-slate-700">
-                “You brought the barakah of bringing families together… more confident in their deen.”
-              </p>
-              <footer class="mt-3 text-xs font-semibold text-slate-600">
-                — Community Partner
-              </footer>
-            </blockquote>
-          </div>
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
+        <h3 class="font-bold">What hosts say</h3>
+        <p class="mt-2 text-sm text-slate-700">“A joyful, faith‑filled show. Kids were engaged the whole time and loved the meet & greet!”</p>
+        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <div class="rounded-2xl bg-orange-50 border border-orange-100 p-3">Quick setup • 25 mins</div>
+          <div class="rounded-2xl bg-blue-50 border border-blue-100 p-3">Interactive songs</div>
+          <div class="rounded-2xl bg-orange-50 border border-orange-100 p-3">Coloring page included</div>
+          <div class="rounded-2xl bg-blue-50 border border-blue-100 p-3">Photo meet & greet</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT / PILLARS -->
-  <section id="about" class="py-12 md:py-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
-          More than a show — a foundation for faith and character
-        </h2>
-        <p class="mt-3 text-slate-600 leading-relaxed">
-          Shams &amp; Laylah brings children into joyful stories and songs built around the Names of Allah,
-          nurturing compassion, self-control, courage, honesty, and love of deen.
-        </p>
-      </div>
-
-      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-black/5">
-          <div class="h-11 w-11 rounded-2xl bg-[#DCEBFF]/70 grid place-items-center font-extrabold text-blue-800">☾</div>
-          <div class="mt-4 font-extrabold">Asma’ul Husna</div>
-          <div class="mt-2 text-sm text-slate-600">Faith-first lessons children can actually remember.</div>
-        </div>
-
-        <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-black/5">
-          <div class="h-11 w-11 rounded-2xl bg-[#F7D7B8]/70 grid place-items-center font-extrabold text-orange-700">♥</div>
-          <div class="mt-4 font-extrabold">Character-first</div>
-          <div class="mt-2 text-sm text-slate-600">Stories that shape habits, not just knowledge.</div>
-        </div>
-
-        <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-black/5">
-          <div class="h-11 w-11 rounded-2xl bg-slate-100 grid place-items-center font-extrabold text-slate-900">✓</div>
-          <div class="mt-4 font-extrabold">Parent &amp; educator designed</div>
-          <div class="mt-2 text-sm text-slate-600">Clear, classroom-ready, and family-friendly.</div>
-        </div>
-
-        <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-black/5">
-          <div class="h-11 w-11 rounded-2xl bg-slate-100 grid place-items-center font-extrabold text-slate-900">🛡</div>
-          <div class="mt-4 font-extrabold">Faith-honoring + child-safe</div>
-          <div class="mt-2 text-sm text-slate-600">Wholesome entertainment you can trust.</div>
-        </div>
+  <!-- Contact -->
+  <section id="contact" class="py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+        <p class="mt-2 text-slate-700">Booking, curriculum questions, collaborations</p>
+        <!-- Form action is a placeholder; replace with Formspree/Tally/Google Form endpoint -->
+        <form class="mt-6 grid gap-4" action="#" method="POST">
+          <div class="grid md:grid-cols-2 gap-4">
+            <input required class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your name" name="name" />
+            <input required type="email" class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your email" name="email" />
+          </div>
+          <input class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Organization (optional)" name="org" />
+          <textarea required class="w-full rounded-xl border border-slate-300 px-3 py-2 min-h-[120px]" placeholder="Message" name="message"></textarea>
+          <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
+            <i data-lucide="mail" class="w-4 h-4"></i> Send Message
+          </button>
+          <p class="text-xs text-slate-500">Or email us: <a href="mailto:shamsandlaylah@gmail.com" class="underline">shamsandlaylah@gmail.com</a></p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- THREE PATHS -->
-  <section class="py-12 md:py-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Choose your path</h2>
-          <p class="mt-2 text-slate-600">Built for families, institutions, and mission-aligned partners.</p>
-        </div>
-      </div>
-
-      <div class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <!-- Families -->
-        <div class="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-black/5">
-          <div class="flex items-center gap-3">
-            <div class="h-12 w-12 rounded-2xl bg-[#F7D7B8]/70 grid place-items-center text-orange-700 font-extrabold">🏠</div>
-            <div>
-              <div class="text-lg font-extrabold">For Families</div>
-              <div class="text-sm text-slate-600">Episodes • songs • printables</div>
-            </div>
-          </div>
-          <ul class="mt-5 space-y-2 text-sm text-slate-700">
-            <li>• Watch new episodes on YouTube</li>
-            <li>• Use printables to reinforce lessons</li>
-            <li>• Build routines around faith + character</li>
-          </ul>
-          <a href="#episodes"
-             class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-blue-700 px-5 py-3 text-white font-extrabold hover:bg-blue-800 transition">
-            Explore for home →
-          </a>
-        </div>
-
-        <!-- Schools -->
-        <div id="live" class="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-black/5">
-          <div class="flex items-center gap-3">
-            <div class="h-12 w-12 rounded-2xl bg-[#DCEBFF]/70 grid place-items-center text-blue-800 font-extrabold">🏫</div>
-            <div>
-              <div class="text-lg font-extrabold">For Schools &amp; Masajid</div>
-              <div class="text-sm text-slate-600">Live puppet programs + add-ons</div>
-            </div>
-          </div>
-          <ul class="mt-5 space-y-2 text-sm text-slate-700">
-            <li>• Assemblies &amp; family nights</li>
-            <li>• Character themes tied to Asma’ul Husna</li>
-            <li>• Optional activity packs &amp; meet-and-greet</li>
-          </ul>
-          <a href="#contact"
-             class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-white font-extrabold hover:bg-slate-800 transition">
-            Book a program →
-          </a>
-        </div>
-
-        <!-- Partners -->
-        <div id="partners" class="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-black/5">
-          <div class="flex items-center gap-3">
-            <div class="h-12 w-12 rounded-2xl bg-slate-100 grid place-items-center text-slate-900 font-extrabold">🤝</div>
-            <div>
-              <div class="text-lg font-extrabold">For Partners</div>
-              <div class="text-sm text-slate-600">Collaborations that scale</div>
-            </div>
-          </div>
-          <ul class="mt-5 space-y-2 text-sm text-slate-700">
-            <li>• Curriculum &amp; media partnerships</li>
-            <li>• Co-branded family programming</li>
-            <li>• Mission-aligned distribution</li>
-          </ul>
-          <a href="#contact"
-             class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-white px-5 py-3 text-slate-900 font-extrabold ring-1 ring-slate-200 hover:ring-slate-300 hover:text-blue-700 transition">
-            Partner with us →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOMENTS (SHORTS / CLIPS) -->
-  <section class="py-12 md:py-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between gap-6">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Moments children love</h2>
-          <p class="mt-2 text-slate-600">Quick clips that show the tone, joy, and learning style.</p>
-        </div>
-        <a href="#episodes" class="hidden sm:inline-flex text-sm font-extrabold text-blue-700 hover:text-blue-800 transition">
-          See more →
-        </a>
-      </div>
-
-      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <a href="https://www.youtube.com/shorts/Z1FEaaISpcU" target="_blank" rel="noopener"
-           class="group rounded-[28px] bg-white p-4 shadow-sm ring-1 ring-black/5 hover:shadow-md transition">
-          <div class="rounded-2xl bg-slate-100 ring-1 ring-slate-200 overflow-hidden">
-            <div class="aspect-video grid place-items-center text-slate-500">
-              <!-- Replace with thumbnail image -->
-              Thumbnail 1
-            </div>
-          </div>
-          <div class="mt-4 flex items-center justify-between">
-            <div class="font-extrabold group-hover:text-blue-700 transition">Watch clip</div>
-            <div class="text-sm text-slate-500">→</div>
-          </div>
-        </a>
-
-        <a href="https://www.youtube.com/shorts/yAjC9vfQ21Q" target="_blank" rel="noopener"
-           class="group rounded-[28px] bg-white p-4 shadow-sm ring-1 ring-black/5 hover:shadow-md transition">
-          <div class="rounded-2xl bg-slate-100 ring-1 ring-slate-200 overflow-hidden">
-            <div class="aspect-video grid place-items-center text-slate-500">Thumbnail 2</div>
-          </div>
-          <div class="mt-4 flex items-center justify-between">
-            <div class="font-extrabold group-hover:text-blue-700 transition">Watch clip</div>
-            <div class="text-sm text-slate-500">→</div>
-          </div>
-        </a>
-
-        <a href="https://www.youtube.com/shorts/t3GiFF4X27c" target="_blank" rel="noopener"
-           class="group rounded-[28px] bg-white p-4 shadow-sm ring-1 ring-black/5 hover:shadow-md transition">
-          <div class="rounded-2xl bg-slate-100 ring-1 ring-slate-200 overflow-hidden">
-            <div class="aspect-video grid place-items-center text-slate-500">Thumbnail 3</div>
-          </div>
-          <div class="mt-4 flex items-center justify-between">
-            <div class="font-extrabold group-hover:text-blue-700 transition">Watch clip</div>
-            <div class="text-sm text-slate-500">→</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="py-12 md:py-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="rounded-[32px] bg-slate-900 px-6 py-10 sm:px-10 sm:py-12 text-white shadow-sm">
-        <div class="max-w-3xl">
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.05]">
-            We’re raising more than viewers.
-            <span class="block mt-2 text-[#DCEBFF]">We’re helping raise a generation rooted in faith and character.</span>
-          </h2>
-          <p class="mt-4 text-white/80 leading-relaxed max-w-2xl">
-            Watch the show, bring Shams &amp; Laylah to your community, or partner with us to expand joyful Islamic learning.
-          </p>
-
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href="#watch"
-               class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 font-extrabold text-slate-900 hover:bg-white/90 transition">
-              ▶ Watch Episodes
-            </a>
-            <a href="#contact"
-               class="inline-flex items-center justify-center rounded-2xl bg-blue-700 px-6 py-3 font-extrabold text-white hover:bg-blue-800 transition">
-              Book / Partner →
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="pb-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Let’s work together</h2>
-          <p class="mt-3 text-slate-600 leading-relaxed">
-            Booking a school program? Want a partnership? Send a message and we’ll respond with next steps.
-          </p>
-          <div class="mt-6 space-y-2 text-sm text-slate-700">
-            <div><span class="font-extrabold">Email:</span> hello@shamsandlaylah.com</div>
-            <div><span class="font-extrabold">YouTube:</span> Shams &amp; Laylah</div>
-            <div><span class="font-extrabold">Location:</span> Chicago • Toronto</div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <div class="rounded-[28px] bg-white p-6 shadow-sm ring-1 ring-black/5">
-            <!-- Replace with your real form embed or link -->
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <label class="block">
-                <span class="text-sm font-extrabold text-slate-900">Name</span>
-                <input class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-400"
-                       placeholder="Your name" />
-              </label>
-              <label class="block">
-                <span class="text-sm font-extrabold text-slate-900">Email</span>
-                <input class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-400"
-                       placeholder="you@email.com" />
-              </label>
-              <label class="block sm:col-span-2">
-                <span class="text-sm font-extrabold text-slate-900">What are you looking for?</span>
-                <select class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-400">
-                  <option>Book a live program</option>
-                  <option>Partner / collaboration</option>
-                  <option>Curriculum / resources</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <label class="block sm:col-span-2">
-                <span class="text-sm font-extrabold text-slate-900">Message</span>
-                <textarea rows="4"
-                          class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-400"
-                          placeholder="Tell us about your school/masjid/community and dates…"></textarea>
-              </label>
-            </div>
-            <button class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 font-extrabold text-white hover:bg-slate-800 transition">
-              Send message →
-            </button>
-            <p class="mt-3 text-xs text-slate-500">
-              Tip: If you already have dates + city + audience size, include it for fastest booking.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-black/5 bg-[#FBF6EF] py-10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div class="text-sm text-slate-600">
-          <span class="font-extrabold text-slate-900">Shams &amp; Laylah</span> © <span id="year"></span>
-        </div>
-        <div class="flex flex-wrap gap-4 text-sm font-semibold">
-          <a href="#watch" class="text-slate-700 hover:text-blue-700 transition">Watch</a>
-          <a href="#live" class="text-slate-700 hover:text-blue-700 transition">Live Programs</a>
-          <a href="#partners" class="text-slate-700 hover:text-blue-700 transition">Partners</a>
-          <a href="#contact" class="text-slate-700 hover:text-blue-700 transition">Contact</a>
-        </div>
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-slate-600">© Shams & Laylah, 2025 • All rights reserved</div>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="YT_CHANNEL_LINK" class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="youtube" class="w-4 h-4"></i> YouTube</a>
+        <a href="IG_LINK" class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
+        <a href="#curriculums" class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop</a>
       </div>
     </div>
   </footer>
-</main>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-  </body>
+  <script>
+    // Activate Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
 </html>
-
