@@ -1,471 +1,1333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shams & Laylah — Live Puppet Experience + Episodes</title>
-  <meta name="description" content="Joyful puppet stories that help kids know and love Allah. Watch episodes, grab printables, and book a live puppet experience for ages 3–10." />
-
-  <!-- Tailwind via CDN (no build needed) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              orange: '#f97316',
-              blue: '#2563eb',
-              green: '#22c55e'
-            }
-          },
-          boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,0.08)'
-          },
-          borderRadius: {
-            '2xl': '1rem',
-            '3xl': '1.5rem'
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Lucide icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Favicon -->
+  <title>Shams & Laylah — Puppet Stories That Help Kids Know & Love Allah</title>
+  <meta name="description" content="Joyful puppet stories that help kids know and love Allah. Watch episodes, download the app, grab printables, and book a live puppet experience for ages 3–10." />
   <link rel="icon" type="image/png" href="logo.png" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
+    :root {
+      --sun-yellow: #FFB830;
+      --sun-orange: #F97316;
+      --moon-blue: #3B82F6;
+      --moon-indigo: #4F46E5;
+      --sky-light: #EFF8FF;
+      --meadow-green: #22C55E;
+      --cloud-white: #FFFFFF;
+      --sand-warm: #FFF7ED;
+      --night-dark: #1E293B;
+      --text-primary: #1E293B;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --border-soft: #E2E8F0;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-2xl: 2rem;
+      --radius-full: 9999px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-primary);
+      background: var(--cloud-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Baloo 2', cursive;
+      line-height: 1.2;
+    }
+
+    /* ── Announcement Bar ── */
+    .announcement-bar {
+      background: linear-gradient(90deg, var(--sun-orange), var(--moon-blue));
+      color: white;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .announcement-bar a { color: white; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── Navbar ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-soft);
+      transition: box-shadow 0.3s;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    .navbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .nav-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--sun-yellow);
+    }
+    .nav-logo span {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--sun-orange);
+      background: rgba(249,115,22,0.08);
+    }
+    .nav-links .app-link {
+      background: linear-gradient(135deg, var(--moon-blue), var(--moon-indigo));
+      color: white !important;
+      padding: 0.45rem 1rem;
+    }
+    .nav-links .app-link:hover { opacity: 0.9; background: linear-gradient(135deg, var(--moon-blue), var(--moon-indigo)); }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--sun-orange);
+      color: white;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(249,115,22,0.4); }
+    .btn-secondary {
+      background: var(--moon-blue);
+      color: white;
+      box-shadow: 0 4px 14px rgba(59,130,246,0.25);
+    }
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59,130,246,0.35); }
+    .btn-outline {
+      background: white;
+      color: var(--text-primary);
+      border: 2px solid var(--border-soft);
+    }
+    .btn-outline:hover { border-color: var(--sun-orange); color: var(--sun-orange); }
+    .btn-app {
+      background: linear-gradient(135deg, var(--moon-blue), var(--moon-indigo));
+      color: white;
+      box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+    }
+    .btn-app:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(79,70,229,0.4); }
+    .btn-sm { padding: 0.4rem 1rem; font-size: 0.85rem; }
+    .btn-lg { padding: 0.75rem 2rem; font-size: 1.1rem; }
+
+    /* ── Mobile Menu ── */
+    .mobile-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-panel {
+      margin-left: auto;
+      width: 300px;
+      max-width: 85vw;
+      background: white;
+      height: 100%;
+      padding: 1.5rem;
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+    }
+    @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    .mobile-menu-panel a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .mobile-menu-panel a:last-child { border-bottom: none; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 3rem 1.5rem 4rem;
+      background: linear-gradient(170deg, var(--sand-warm) 0%, #FFF0DB 30%, var(--sky-light) 70%, #E0ECFF 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,184,48,0.25), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+      border-radius: 50%;
+    }
+    /* Floating shapes */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-shape:nth-child(1) { width: 60px; height: 60px; background: var(--sun-yellow); top: 15%; left: 5%; animation-delay: 0s; }
+    .hero-shape:nth-child(2) { width: 40px; height: 40px; background: var(--moon-blue); top: 25%; right: 10%; animation-delay: 2s; }
+    .hero-shape:nth-child(3) { width: 80px; height: 80px; background: var(--meadow-green); bottom: 20%; left: 15%; animation-delay: 4s; }
+    .hero-shape:nth-child(4) { width: 30px; height: 30px; background: var(--sun-orange); bottom: 35%; right: 20%; animation-delay: 1s; }
+    .hero-shape:nth-child(5) { width: 24px; height: 24px; background: var(--moon-indigo); top: 40%; left: 35%; animation-delay: 3s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(5deg); }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: white;
+      border: 1.5px solid var(--sun-yellow);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--sun-orange);
+      width: fit-content;
+      animation: fadeUp 0.6s ease;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--meadow-green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-top: 0.75rem;
+      color: var(--text-primary);
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+    .hero h1 .orange { color: var(--sun-orange); }
+    .hero h1 .blue { color: var(--moon-blue); }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-top: 0.75rem;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .hero-trust-item i { color: var(--sun-orange); }
+
+    .hero-visual {
+      position: relative;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-card {
+      background: white;
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--border-soft);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.6) inset;
+    }
+    .hero-card-image {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #FFF3E0, #E3F2FD);
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+    .hero-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .hero-card-thumbs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-top: 1px solid var(--border-soft);
+      background: #FAFAFA;
+    }
+    .hero-card-thumbs img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border-soft);
+      transition: transform 0.25s;
+    }
+    .hero-card-thumbs img:hover { transform: scale(1.05); }
+
+    /* Floating mini badges on hero visual */
+    .float-badge {
+      position: absolute;
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    .float-badge.top-right { top: -12px; right: -8px; animation-delay: 0s; }
+    .float-badge.bottom-left { bottom: 40px; left: -12px; animation-delay: 2s; }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ── Sections Shared ── */
+    .section {
+      padding: 4rem 1.5rem;
+    }
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sun-orange);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── App Promo Section ── */
+    .app-section {
+      background: linear-gradient(135deg, #EEF2FF 0%, #E0ECFF 50%, #F0F9FF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .app-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(79,70,229,0.12), transparent 70%);
+      border-radius: 50%;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .app-mockup {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .app-phone {
+      width: 260px;
+      height: 520px;
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border-radius: 36px;
+      border: 3px solid #333;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-phone-notch {
+      width: 100px;
+      height: 24px;
+      background: #000;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      top: 0;
+      z-index: 5;
+    }
+    .app-phone-screen {
+      width: 100%;
+      flex: 1;
+      background: linear-gradient(170deg, var(--sand-warm), var(--sky-light));
+      border-radius: 24px;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .app-phone-screen img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+    }
+    .app-phone-screen h4 {
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+    .app-phone-screen p {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    .app-features {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .app-feature-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .app-feature-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .app-feature-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-lg);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .app-feature-icon.blue { background: #DBEAFE; color: var(--moon-blue); }
+    .app-feature-icon.orange { background: #FFEDD5; color: var(--sun-orange); }
+    .app-feature-icon.green { background: #DCFCE7; color: var(--meadow-green); }
+    .app-feature-icon.indigo { background: #E0E7FF; color: var(--moon-indigo); }
+    .app-feature-card h4 { font-size: 1rem; font-weight: 700; }
+    .app-feature-card p { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem; }
+
+    /* ── How it Works ── */
+    .how-section { background: var(--sand-warm); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: white;
+      border-radius: var(--radius-2xl);
+      padding: 2rem;
+      border: 1.5px solid var(--border-soft);
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+    .step-number {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: white;
+      margin: 0 auto 1rem;
+    }
+    .step-card:nth-child(1) .step-number { background: var(--sun-orange); }
+    .step-card:nth-child(2) .step-number { background: var(--moon-blue); }
+    .step-card:nth-child(3) .step-number { background: var(--meadow-green); }
+    .step-card:nth-child(4) .step-number { background: var(--moon-indigo); }
+    .step-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+    .step-card .step-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--moon-blue);
+      text-decoration: none;
+    }
+    .step-card .step-link:hover { text-decoration: underline; }
+
+    /* ── Videos ── */
+    .video-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .video-card {
+      background: white;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1.5px solid var(--border-soft);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.06); }
+    .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+    .video-card-body { padding: 1.25rem; }
+    .video-card-body h3 { font-size: 1.05rem; font-weight: 800; }
+    .video-card-body p { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem; }
+    .video-card-body a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.75rem; font-weight: 700; font-size: 0.85rem;
+      color: var(--moon-blue); text-decoration: none;
+    }
+    .video-card-body a:hover { text-decoration: underline; }
+
+    .shorts-heading { margin-top: 3rem; }
+    .shorts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+    .short-card {
+      background: white;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1.5px solid var(--border-soft);
+      transition: transform 0.3s;
+    }
+    .short-card:hover { transform: translateY(-4px); }
+    .short-card iframe { width: 100%; aspect-ratio: 9/16; display: block; border: none; }
+    .short-card-footer { padding: 0.75rem 1rem; text-align: center; }
+    .short-card-footer a { font-weight: 700; font-size: 0.82rem; color: var(--moon-blue); text-decoration: none; }
+
+    /* ── Shop ── */
+    .shop-section { background: linear-gradient(170deg, #FFF7ED, #FFFBF5); }
+    .shop-banner {
+      background: white;
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--border-soft);
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .shop-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,184,48,0.05), rgba(59,130,246,0.05));
+    }
+    .shop-banner > * { position: relative; z-index: 1; }
+    .shop-banner h3 { font-size: 1.8rem; font-weight: 800; }
+    .shop-banner p { color: var(--text-secondary); max-width: 500px; margin: 0.5rem auto 0; font-size: 1rem; }
+    .shop-tags {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.5rem;
+    }
+    .shop-tag {
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .shop-tag.orange { background: #FFEDD5; color: #C2410C; }
+    .shop-tag.blue { background: #DBEAFE; color: #1D4ED8; }
+    .shop-tag.green { background: #DCFCE7; color: #15803D; }
+
+    /* ── Social Proof / Stats ── */
+    .stats-section { background: var(--night-dark); color: white; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .stat-item h3 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--sun-yellow), var(--sun-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-item p { font-size: 0.9rem; color: #94A3B8; margin-top: 0.25rem; font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--sky-light); }
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item {
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 1.5px solid var(--border-soft);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.25rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); color: var(--sun-orange); }
+    .faq-item .faq-answer {
+      padding: 0 1.25rem 1.15rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .faq-item .faq-answer a { color: var(--moon-blue); font-weight: 700; }
+
+    /* ── Contact ── */
+    .contact-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius-2xl);
+      border: 2px solid var(--border-soft);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+      padding: 2.5rem;
+    }
+    .contact-card h2 { font-size: 1.8rem; }
+    .contact-card p { color: var(--text-secondary); margin-top: 0.25rem; }
+    .contact-form { margin-top: 1.5rem; display: grid; gap: 1rem; }
+    .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--moon-blue);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+    .contact-note { font-size: 0.8rem; color: var(--text-muted); }
+    .contact-note a { color: var(--moon-blue); font-weight: 700; }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--night-dark);
+      color: #94A3B8;
+      padding: 3rem 1.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-brand span {
+      font-family: 'Baloo 2', cursive;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: white;
+    }
+    .footer-brand p { margin-top: 0.5rem; font-size: 0.9rem; max-width: 300px; line-height: 1.6; }
+    .footer-links h4 { color: white; font-family: 'Baloo 2', cursive; font-size: 1rem; margin-bottom: 0.75rem; }
+    .footer-links a {
+      display: block;
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sun-yellow); }
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-socials a {
+      color: #94A3B8;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--sun-yellow); }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .mobile-toggle { display: none; }
+      .hero-inner { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .app-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .footer-inner { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .contact-row { grid-template-columns: 1fr; }
+      .hero { padding: 2rem 1rem 3rem; }
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-orange-50 via-white to-blue-50 text-slate-800">
+<body>
 
-  <!-- Top Bar -->
-  <div class="bg-white/70 border-b border-orange-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2 text-sm">
-      <div class="flex items-center gap-2 text-slate-600">
-        <span class="inline-flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-brand-green"></span>
-          New episodes on YouTube
-        </span>
-        <span class="text-slate-300">•</span>
-        <span>Ages 3–10</span>
+  <!-- ══════════ ANNOUNCEMENT BAR ══════════ -->
+  <div class="announcement-bar">
+    🎉 Our App is LIVE! &nbsp;
+    <a href="https://app.shamsandlaylah.com" target="_blank">Try Shams & Laylah App →</a>
+  </div>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a class="nav-logo" href="#home">
+        <img src="logo.png" alt="Shams & Laylah logo" />
+        <span>Shams & Laylah</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#app" class="app-link">📱 App</a></li>
+        <li><a href="#videos">Watch</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://app.shamsandlaylah.com" target="_blank" class="btn btn-app btn-sm" style="display:none" id="navAppBtn">
+          <i data-lucide="smartphone" style="width:16px;height:16px"></i> Open App
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm">Book / Inquire</a>
+        <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Menu">
+          <i data-lucide="menu" style="width:24px;height:24px"></i>
+        </button>
       </div>
-      <div class="flex items-center gap-4">
-        <a class="hover:underline text-slate-700" href="https://www.youtube.com/@ShamsandLaylah" target="_blank" rel="noopener">YouTube</a>
-        <a class="hover:underline text-slate-700" href="https://www.instagram.com/shamsandlaylah/" target="_blank" rel="noopener">Instagram</a>
-        <a class="hover:underline text-slate-700" href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ══════════ MOBILE MENU ══════════ -->
+  <div class="mobile-menu" id="mobileMenu" onclick="closeMobile(event)">
+    <div class="mobile-menu-panel" onclick="event.stopPropagation()">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+        <span style="font-family:'Baloo 2';font-weight:800;font-size:1.2rem">Menu</span>
+        <button onclick="toggleMobile()" style="background:none;border:none;cursor:pointer">
+          <i data-lucide="x" style="width:24px;height:24px"></i>
+        </button>
+      </div>
+      <a href="#home" onclick="toggleMobile()"><i data-lucide="home" style="width:18px;height:18px"></i> Home</a>
+      <a href="#how" onclick="toggleMobile()"><i data-lucide="zap" style="width:18px;height:18px"></i> How It Works</a>
+      <a href="https://app.shamsandlaylah.com" target="_blank" style="color:var(--moon-indigo)"><i data-lucide="smartphone" style="width:18px;height:18px"></i> 📱 App (NEW!)</a>
+      <a href="#videos" onclick="toggleMobile()"><i data-lucide="play-circle" style="width:18px;height:18px"></i> Watch</a>
+      <a href="#shop" onclick="toggleMobile()"><i data-lucide="shopping-bag" style="width:18px;height:18px"></i> Shop</a>
+      <a href="#faq" onclick="toggleMobile()"><i data-lucide="help-circle" style="width:18px;height:18px"></i> FAQ</a>
+      <a href="#contact" onclick="toggleMobile()"><i data-lucide="mail" style="width:18px;height:18px"></i> Contact</a>
+      <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+        <a href="https://app.shamsandlaylah.com" target="_blank" class="btn btn-app" style="text-align:center">Open App</a>
+        <a href="https://payhip.com/ShamsandLaylah" target="_blank" class="btn btn-primary" style="text-align:center">Shop Printables</a>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/75 border-b border-orange-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#home" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-2xl overflow-hidden bg-white border border-orange-100 shadow-sm grid place-items-center">
-          <!-- Replace logo -->
-          <img src="logo.png" alt="Shams & Laylah" class="w-full h-full object-contain p-1" />
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="home">
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Ages 3–10 • Islamic Puppet Learning
         </div>
-        <div class="font-extrabold text-lg tracking-tight">Shams &amp; Laylah</div>
-      </a>
+        <h1>Puppet stories that help kids <span class="orange">know</span> & <span class="blue">love</span> Allah</h1>
+        <p class="hero-subtitle">
+          Watch joyful episodes on YouTube, explore our new app, download printable activities, or bring Shams & Laylah to your school or masjid live.
+        </p>
+        <div class="hero-cta">
+          <a href="#videos" class="btn btn-primary btn-lg">
+            <i data-lucide="play" style="width:18px;height:18px"></i> Watch Episodes
+          </a>
+          <a href="https://app.shamsandlaylah.com" target="_blank" class="btn btn-app btn-lg">
+            <i data-lucide="smartphone" style="width:18px;height:18px"></i> Try the App
+          </a>
+          <a href="https://payhip.com/ShamsandLaylah" target="_blank" class="btn btn-outline btn-lg">
+            <i data-lucide="shopping-bag" style="width:18px;height:18px"></i> Shop
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><i data-lucide="sparkles" style="width:16px;height:16px"></i> Home, school & masjid</div>
+          <div class="hero-trust-item"><i data-lucide="book-open" style="width:16px;height:16px"></i> Print-ready PDFs</div>
+          <div class="hero-trust-item"><i data-lucide="calendar-days" style="width:16px;height:16px"></i> Live shows available</div>
+          <div class="hero-trust-item"><i data-lucide="heart" style="width:16px;height:16px"></i> Faith-centered</div>
+        </div>
+      </div>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a class="hover:text-brand-orange" href="#how">How it works</a>
-        <a class="hover:text-brand-orange" href="#videos">Watch</a>
-        <a class="hover:text-brand-orange" href="#shop">Shop</a>
-        <a class="hover:text-brand-orange" href="#faq">FAQ</a>
-        <a class="hover:text-brand-orange" href="#contact">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener"
-           class="hidden sm:inline-flex px-3 py-2 rounded-xl bg-brand-blue text-white text-sm font-semibold shadow hover:bg-blue-700">
-          Shop Now
-        </a>
-        <a href="#contact"
-           class="inline-flex px-3 py-2 rounded-xl bg-brand-orange text-white text-sm font-semibold shadow hover:bg-orange-600">
-          Book / Inquire
-        </a>
+      <div class="hero-visual">
+        <div class="float-badge top-right">⭐ NEW App!</div>
+        <div class="float-badge bottom-left">🎤 Book Live</div>
+        <div class="hero-card">
+          <div class="hero-card-image">
+            <img src="shams-laylah.png" alt="Shams & Laylah puppets" />
+          </div>
+          <div class="hero-card-thumbs">
+            <img src="1thumbnail.png" alt="Episode thumbnail" />
+            <img src="2thumbnail.png" alt="Episode thumbnail" />
+            <img src="bundle1-cover.png" alt="Printable bundle cover" />
+          </div>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- HERO (Treehouse-style: big promise + contrast bullets + sticky CTA) -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-200/60 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-200/60 rounded-full blur-3xl"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid lg:grid-cols-12 gap-10 items-start">
-
-      <!-- Left: Copy -->
-      <div class="lg:col-span-6">
-        <p class="inline-flex items-center gap-2 text-sm font-semibold px-3 py-1 rounded-full bg-white/70 border border-orange-100">
-          <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-          Interactive Islamic learning that feels like play
-        </p>
-
-        <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-          Puppet stories that help kids <span class="text-brand-orange">know</span> &amp; <span class="text-brand-blue">love</span> Allah
-        </h1>
-
-        <p class="mt-4 text-lg text-slate-700 max-w-xl">
-          Watch our YouTube episodes, download printable activities, and bring Shams &amp; Laylah to your school or masjid with a joyful live puppet experience.
-        </p>
-
-        <!-- Contrast bullets (Noor Kids vibe) -->
-        <div class="mt-6 grid gap-3 max-w-xl">
-          <div class="rounded-2xl bg-white/80 border border-slate-200 p-4">
-            <div class="font-semibold">❌ Dry lectures + “just memorize”</div>
-            <div class="mt-1 text-sm text-slate-700">Kids tune out fast — and the lesson doesn’t stick.</div>
-          </div>
-          <div class="rounded-2xl bg-white/80 border border-slate-200 p-4">
-            <div class="font-semibold">✅ Songs, skits, and silly moments with meaning</div>
-            <div class="mt-1 text-sm text-slate-700">Faith-filled concepts become simple, memorable, and heart-centered.</div>
-          </div>
+  <!-- ══════════ SOCIAL PROOF STATS ══════════ -->
+  <section class="section stats-section">
+    <div class="section-inner">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <h3>2</h3>
+          <p>Full Episodes</p>
         </div>
-
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a href="#videos"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-            <i data-lucide="play" class="w-4 h-4"></i> Watch now
-          </a>
-
-          <a href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 font-semibold hover:border-slate-300">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop printables
-          </a>
-
-          <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 font-semibold hover:border-slate-300">
-            <i data-lucide="youtube" class="w-4 h-4"></i> YouTube channel
-          </a>
+        <div class="stat-item">
+          <h3>3–10</h3>
+          <p>Age Range</p>
         </div>
-
-        <div class="mt-6 flex flex-wrap gap-4 text-sm text-slate-600">
-          <div class="inline-flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> Circle-time friendly</div>
-          <div class="inline-flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Print-ready PDFs</div>
-          <div class="inline-flex items-center gap-2"><i data-lucide="calendar-days" class="w-4 h-4"></i> Live shows available</div>
+        <div class="stat-item">
+          <h3>100+</h3>
+          <p>Families Reached</p>
+        </div>
+        <div class="stat-item">
+          <h3>NEW</h3>
+          <p>App Just Launched</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Right: Product panel (image + CTA) -->
-      <div class="lg:col-span-6">
-        <div class="rounded-3xl bg-white border border-slate-200 shadow-soft overflow-hidden">
-          <!-- Gallery -->
-          <div class="grid sm:grid-cols-12 gap-0">
-            <div class="sm:col-span-8 bg-gradient-to-br from-orange-100 to-blue-100 p-4">
-              <div class="aspect-[4/3] rounded-3xl bg-white/70 border border-white shadow-sm overflow-hidden grid place-items-center">
-                <!-- MAIN image -->
-                <img src="shams-laylah.png" alt="Shams & Laylah" class="w-full h-full object-contain p-6" />
-              </div>
-            </div>
-            <div class="sm:col-span-4 bg-white p-4 border-t sm:border-t-0 sm:border-l border-slate-200">
-              <div class="grid grid-cols-3 sm:grid-cols-1 gap-3">
-                <div class="aspect-[4/3] rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden">
-                  <img src="1thumbnail.png" alt="Thumbnail 1" class="w-full h-full object-cover" />
-                </div>
-                <div class="aspect-[4/3] rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden">
-                  <img src="2thumbnail.png" alt="Thumbnail 2" class="w-full h-full object-cover" />
-                </div>
-                <div class="aspect-[4/3] rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden">
-                  <img src="bundle1-cover.png" alt="Thumbnail 3" class="w-full h-full object-cover" />
-                </div>
-              </div>
+  <!-- ══════════ HOW IT WORKS ══════════ -->
+  <section class="section how-section" id="how">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label"><i data-lucide="zap" style="width:14px;height:14px"></i> Simple for parents & teachers</div>
+        <h2>How It Works</h2>
+        <p>Four ways to bring Islamic learning to life — pick one or use them all together.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Watch</h3>
+          <p>Stream episodes and shorts on YouTube — high-energy puppet storytelling kids replay over and over.</p>
+          <a class="step-link" href="https://www.youtube.com/@ShamsandLaylah" target="_blank">
+            <i data-lucide="youtube" style="width:16px;height:16px"></i> YouTube channel
+          </a>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Explore the App</h3>
+          <p>Our brand-new app brings interactive stories, games, and learning right to your child's fingertips.</p>
+          <a class="step-link" href="https://app.shamsandlaylah.com" target="_blank">
+            <i data-lucide="smartphone" style="width:16px;height:16px"></i> Open the App
+          </a>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Print</h3>
+          <p>Download printable coloring pages, activity PDFs, and curriculum bundles that reinforce each lesson.</p>
+          <a class="step-link" href="https://payhip.com/ShamsandLaylah" target="_blank">
+            <i data-lucide="shopping-bag" style="width:16px;height:16px"></i> Shop printables
+          </a>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">4</div>
+          <h3>Book Live</h3>
+          <p>Bring Shams & Laylah to your masjid, school, or event — a full puppet show with meet & greet.</p>
+          <a class="step-link" href="#contact">
+            <i data-lucide="ticket" style="width:16px;height:16px"></i> Inquire now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ APP SECTION ══════════ -->
+  <section class="section app-section" id="app">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label" style="color:var(--moon-indigo)"><i data-lucide="sparkles" style="width:14px;height:14px"></i> Just Launched</div>
+        <h2>The Shams & Laylah App</h2>
+        <p>Interactive Islamic learning in the palm of your hand — made for little learners and the parents who love them.</p>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-mockup reveal">
+          <div class="app-phone">
+            <div class="app-phone-notch"></div>
+            <div class="app-phone-screen">
+              <img src="logo.png" alt="App icon" />
+              <h4>Shams & Laylah</h4>
+              <p>Stories, games & learning adventures about Allah's beautiful names</p>
+              <a href="https://app.shamsandlaylah.com" target="_blank" class="btn btn-app btn-sm" style="margin-top:0.5rem">Open App</a>
             </div>
           </div>
+        </div>
 
-          <!-- CTA -->
-          <div class="p-6 border-t border-slate-200">
-            <div class="flex items-start justify-between gap-4">
+        <div class="reveal">
+          <h3 style="font-size:1.6rem;font-weight:800">Learning that feels like play</h3>
+          <p style="color:var(--text-secondary);margin-top:0.5rem;line-height:1.7">
+            Our app extends the Shams & Laylah experience beyond YouTube — with interactive stories, quizzes, and activities your child can explore on their own or with you.
+          </p>
+
+          <div class="app-features">
+            <div class="app-feature-card">
+              <div class="app-feature-icon blue"><i data-lucide="book-open" style="width:22px;height:22px"></i></div>
               <div>
-                <h2 class="text-xl md:text-2xl font-extrabold">Shop Printables + Resources</h2>
-                <p class="mt-1 text-slate-700">Instant download curriculums for home, school, and masjid.</p>
+                <h4>Interactive Stories</h4>
+                <p>Tap-along puppet adventures with narration and animation.</p>
               </div>
-              <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-800">
-                Ages 3–10
-              </span>
             </div>
+            <div class="app-feature-card">
+              <div class="app-feature-icon orange"><i data-lucide="gamepad-2" style="width:22px;height:22px"></i></div>
+              <div>
+                <h4>Fun Quizzes & Games</h4>
+                <p>Reinforce lessons with playful challenges kids love.</p>
+              </div>
+            </div>
+            <div class="app-feature-card">
+              <div class="app-feature-icon green"><i data-lucide="shield-check" style="width:22px;height:22px"></i></div>
+              <div>
+                <h4>Safe & Ad-Free</h4>
+                <p>A worry-free space designed with parents in mind.</p>
+              </div>
+            </div>
+            <div class="app-feature-card">
+              <div class="app-feature-icon indigo"><i data-lucide="wifi-off" style="width:22px;height:22px"></i></div>
+              <div>
+                <h4>Works Offline</h4>
+                <p>Download content for car rides, flights, and quiet time.</p>
+              </div>
+            </div>
+          </div>
 
-            <div class="mt-5 flex flex-wrap gap-3">
-              <a href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener"
-                 class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-5 py-3 rounded-2xl bg-brand-orange text-white font-extrabold shadow hover:bg-orange-600">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i> Visit Store
-              </a>
-              <a href="#contact"
-                 class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-5 py-3 rounded-2xl bg-white border border-slate-200 font-extrabold hover:border-slate-300">
-                <i data-lucide="ticket" class="w-5 h-5"></i> Book a Live Experience
-              </a>
-            </div>
-
-            <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
-              <div class="rounded-2xl bg-orange-50 border border-orange-100 p-3">Printable &amp; classroom-friendly</div>
-              <div class="rounded-2xl bg-blue-50 border border-blue-100 p-3">Song prompts &amp; activities</div>
-              <div class="rounded-2xl bg-orange-50 border border-orange-100 p-3">Faith-centered &amp; gentle</div>
-              <div class="rounded-2xl bg-blue-50 border border-blue-100 p-3">Great for circle time</div>
-            </div>
+          <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem">
+            <a href="https://app.shamsandlaylah.com" target="_blank" class="btn btn-app btn-lg">
+              <i data-lucide="smartphone" style="width:18px;height:18px"></i> Launch the App
+            </a>
           </div>
         </div>
-
-        <p class="mt-3 text-xs text-slate-500">
-          Links: Our store + YouTube channel + booking inquiry form.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="py-14 border-t border-orange-100 bg-white/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-3xl font-extrabold">How it works</h2>
-      <p class="mt-2 text-slate-700 max-w-2xl">
-        Simple for parents and teachers. Fun for kids.
-      </p>
-
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
-        <article class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
-          <div class="w-12 h-12 rounded-2xl bg-orange-100 text-orange-700 grid place-items-center">
-            <i data-lucide="play-circle" class="w-6 h-6"></i>
-          </div>
-          <h3 class="mt-4 font-bold text-lg">Watch</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Episodes + shorts on YouTube — kid-friendly, high-energy, and easy to replay.
-          </p>
-          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:underline"
-             href="https://www.youtube.com/@ShamsandLaylah" target="_blank" rel="noopener">
-            <i data-lucide="youtube" class="w-4 h-4"></i> Go to channel
-          </a>
-        </article>
-
-        <article class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
-          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 grid place-items-center">
-            <i data-lucide="printer" class="w-6 h-6"></i>
-          </div>
-          <h3 class="mt-4 font-bold text-lg">Print</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Grab printable coloring pages and activity PDFs to reinforce the lesson.
-          </p>
-          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:underline"
-             href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener">
-            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop printables
-          </a>
-        </article>
-
-        <article class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
-          <div class="w-12 h-12 rounded-2xl bg-orange-100 text-orange-700 grid place-items-center">
-            <i data-lucide="party-popper" class="w-6 h-6"></i>
-          </div>
-          <h3 class="mt-4 font-bold text-lg">Book Live</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Bring Shams &amp; Laylah to your community with a live puppet show + meet &amp; greet.
-          </p>
-          <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:underline"
-             href="#contact">
-            <i data-lucide="ticket" class="w-4 h-4"></i> Inquire now
-          </a>
-        </article>
       </div>
     </div>
   </section>
 
-  <!-- WATCH (Episodes + Shorts) -->
-  <section id="videos" class="py-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-extrabold">Watch</h2>
-          <p class="mt-2 text-slate-700 max-w-2xl">
-            Episodes + Shorts. Subscribe so your kids see it first.
-          </p>
-        </div>
-        <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-blue text-white font-semibold shadow hover:bg-blue-700">
-          <i data-lucide="youtube" class="w-5 h-5"></i> Visit YouTube
+  <!-- ══════════ WATCH ══════════ -->
+  <section class="section" id="videos" style="background:#FFFBF5">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Episodes & Shorts</div>
+        <h2>Watch Shams & Laylah</h2>
+        <p>Kid-friendly puppet episodes about Allah's Names — subscribe so your family sees them first.</p>
+      </div>
+
+      <div style="text-align:center;margin-bottom:2rem">
+        <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank" class="btn btn-secondary">
+          <i data-lucide="youtube" style="width:18px;height:18px"></i> Subscribe on YouTube
         </a>
       </div>
 
-      <!-- Episodes -->
-      <div class="mt-8 grid lg:grid-cols-2 gap-6">
-        <article class="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-          <div class="aspect-video bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/8cYvf71KcZ8" title="Episode 1"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg">Episode 1 — Ar-Rahman &amp; Ar-Raheem</h3>
-            <p class="mt-1 text-sm text-slate-600">Mercy &amp; Compassion — with songs, skits, and kid-friendly reminders.</p>
-            <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:underline"
-               href="https://youtu.be/8cYvf71KcZ8?si=XuIowDoXarmVnL8Q" target="_blank" rel="noopener">
-              <i data-lucide="external-link" class="w-4 h-4"></i> Watch on YouTube
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <iframe src="https://www.youtube.com/embed/8cYvf71KcZ8" title="Episode 1 — Ar-Rahman & Ar-Raheem"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+          <div class="video-card-body">
+            <h3>Episode 1 — Ar-Rahman & Ar-Raheem</h3>
+            <p>Mercy & Compassion — with songs, skits, and kid-friendly reminders.</p>
+            <a href="https://youtu.be/8cYvf71KcZ8?si=XuIowDoXarmVnL8Q" target="_blank">
+              <i data-lucide="external-link" style="width:14px;height:14px"></i> Watch on YouTube
             </a>
           </div>
-        </article>
+        </div>
 
-        <article class="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-          <div class="aspect-video bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/gZME8AX9IFk" title="Episode 2"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-lg">Episode 2 — Al-‘Aleem &amp; Al-Hakeem</h3>
-            <p class="mt-1 text-sm text-slate-600">Knowledge &amp; Wisdom — storytime + activity feel.</p>
-            <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:underline"
-               href="https://youtu.be/gZME8AX9IFk?si=c0eS59qpdgWujBc7" target="_blank" rel="noopener">
-              <i data-lucide="external-link" class="w-4 h-4"></i> Watch on YouTube
+        <div class="video-card reveal">
+          <iframe src="https://www.youtube.com/embed/gZME8AX9IFk" title="Episode 2 — Al-'Aleem & Al-Hakeem"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+          <div class="video-card-body">
+            <h3>Episode 2 — Al-'Aleem & Al-Hakeem</h3>
+            <p>Knowledge & Wisdom — storytime + activity feel.</p>
+            <a href="https://youtu.be/gZME8AX9IFk?si=c0eS59qpdgWujBc7" target="_blank">
+              <i data-lucide="external-link" style="width:14px;height:14px"></i> Watch on YouTube
             </a>
           </div>
-        </article>
+        </div>
       </div>
 
-      <!-- Shorts -->
-      <h3 class="mt-12 font-extrabold text-xl">Shorts</h3>
-      <p class="mt-2 text-slate-700">Quick, replayable moments kids love.</p>
+      <div class="shorts-heading">
+        <h3 style="font-family:'Baloo 2';font-size:1.4rem;font-weight:800;text-align:center">Shorts</h3>
+        <p style="text-align:center;color:var(--text-secondary);margin-top:0.25rem">Quick, replayable moments kids love.</p>
+      </div>
 
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <article class="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-          <div class="aspect-[9/16] bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z1FEaaISpcU" title="Short 1"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+      <div class="shorts-grid">
+        <div class="short-card reveal">
+          <iframe src="https://www.youtube.com/embed/Z1FEaaISpcU" title="Short 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+          <div class="short-card-footer">
+            <a href="https://www.youtube.com/shorts/Z1FEaaISpcU" target="_blank">Open on YouTube</a>
           </div>
-          <div class="p-4 text-sm">
-            <a class="font-semibold text-brand-blue hover:underline" href="https://www.youtube.com/shorts/Z1FEaaISpcU" target="_blank" rel="noopener">Open on YouTube</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-          <div class="aspect-[9/16] bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/t3GiFF4X27c" title="Short 2"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="short-card reveal">
+          <iframe src="https://www.youtube.com/embed/t3GiFF4X27c" title="Short 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+          <div class="short-card-footer">
+            <a href="https://www.youtube.com/shorts/t3GiFF4X27c" target="_blank">Open on YouTube</a>
           </div>
-          <div class="p-4 text-sm">
-            <a class="font-semibold text-brand-blue hover:underline" href="https://www.youtube.com/shorts/t3GiFF4X27c" target="_blank" rel="noopener">Open on YouTube</a>
-          </div>
-        </article>
+        </div>
 
-        <article class="rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-          <div class="aspect-[9/16] bg-slate-100">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/MY9MvDYK4E4" title="Short 3"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+        <div class="short-card reveal">
+          <iframe src="https://www.youtube.com/embed/MY9MvDYK4E4" title="Short 3"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen loading="lazy"></iframe>
+          <div class="short-card-footer">
+            <a href="https://www.youtube.com/shorts/MY9MvDYK4E4" target="_blank">Open on YouTube</a>
           </div>
-          <div class="p-4 text-sm">
-            <a class="font-semibold text-brand-blue hover:underline" href="https://www.youtube.com/shorts/MY9MvDYK4E4" target="_blank" rel="noopener">Open on YouTube</a>
-          </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ══════════ SHOP ══════════ -->
+  <section class="section shop-section" id="shop">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label"><i data-lucide="shopping-bag" style="width:14px;height:14px"></i> Printables & Resources</div>
+        <h2>Shop</h2>
+        <p>Instant-download curriculum bundles, coloring pages, and activities for home, school, and masjid.</p>
+      </div>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-14 border-t border-slate-200 bg-white/60">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl md:text-3xl font-extrabold">Frequently Asked Questions</h2>
+      <div class="shop-banner reveal">
+        <h3>📦 Printable Bundles Ready to Go</h3>
+        <p>Designed to pair with each episode — or use as standalone Islamic activities for any classroom or home setting.</p>
+        <div class="shop-tags">
+          <span class="shop-tag orange">Coloring Pages</span>
+          <span class="shop-tag blue">Activity Sheets</span>
+          <span class="shop-tag green">Curriculum Guides</span>
+          <span class="shop-tag orange">Song Prompts</span>
+          <span class="shop-tag blue">Lesson Plans</span>
+        </div>
+        <div style="margin-top:2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem">
+          <a href="https://payhip.com/ShamsandLaylah" target="_blank" class="btn btn-primary btn-lg">
+            <i data-lucide="shopping-bag" style="width:18px;height:18px"></i> Visit Store on Payhip
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="mt-8 space-y-4">
-        <details class="group rounded-3xl bg-white border border-slate-200 shadow-sm p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-bold">Is this appropriate for preschool + early elementary?</span>
-            <span class="w-10 h-10 rounded-2xl bg-slate-100 grid place-items-center group-open:rotate-45 transition">
-              <i data-lucide="plus" class="w-5 h-5"></i>
-            </span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-700">
-            Yes — Shams &amp; Laylah is designed for ages 3–10 with gentle language, playful learning, and faith-filled themes.
-          </p>
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="section faq-section" id="faq">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label"><i data-lucide="help-circle" style="width:14px;height:14px"></i> Questions?</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Is this appropriate for preschool + early elementary?</summary>
+          <div class="faq-answer">Yes — Shams & Laylah is designed for ages 3–10 with gentle language, playful learning, and faith-filled themes that work great at home, school, and the masjid.</div>
         </details>
-
-        <details class="group rounded-3xl bg-white border border-slate-200 shadow-sm p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-bold">Where can I buy your printables?</span>
-            <span class="w-10 h-10 rounded-2xl bg-slate-100 grid place-items-center group-open:rotate-45 transition">
-              <i data-lucide="plus" class="w-5 h-5"></i>
-            </span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-700">
-            Our PDF resources are on Payhip:
-            <a class="font-semibold text-brand-blue hover:underline" href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener">payhip.com/ShamsandLaylah</a>.
-          </p>
+        <details class="faq-item reveal">
+          <summary>Where can I buy your printables?</summary>
+          <div class="faq-answer">All our PDF resources, activity bundles, and curriculum guides are on Payhip: <a href="https://payhip.com/ShamsandLaylah" target="_blank">payhip.com/ShamsandLaylah</a>.</div>
         </details>
-
-        <details class="group rounded-3xl bg-white border border-slate-200 shadow-sm p-5">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-bold">How do I book a live puppet experience?</span>
-            <span class="w-10 h-10 rounded-2xl bg-slate-100 grid place-items-center group-open:rotate-45 transition">
-              <i data-lucide="plus" class="w-5 h-5"></i>
-            </span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-700">
-            Send us a message using the form below and we’ll reply with availability and options.
-          </p>
+        <details class="faq-item reveal">
+          <summary>How do I book a live puppet experience?</summary>
+          <div class="faq-answer">Fill out the contact form below with your event details and we'll reply with availability, pricing, and options for your school, masjid, or community event.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What is the Shams & Laylah App?</summary>
+          <div class="faq-answer">Our new web app at <a href="https://app.shamsandlaylah.com" target="_blank">app.shamsandlaylah.com</a> extends the puppet experience with interactive stories, quizzes, and activities your child can explore independently or with you. It's safe, ad-free, and designed for young learners.</div>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is the content available in other languages?</summary>
+          <div class="faq-answer">Currently our episodes and printables are in English. We're exploring Arabic-language content — follow us on Instagram to stay updated!</div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (Formspree wired) -->
-  <section id="contact" class="py-14">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl bg-white border border-slate-200 shadow-soft p-6">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
-        <p class="mt-2 text-slate-700">Bookings, curriculum questions, collaborations</p>
+  <!-- ══════════ CONTACT ══════════ -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label"><i data-lucide="mail" style="width:14px;height:14px"></i> Get in Touch</div>
+        <h2>Contact Us</h2>
+        <p>Bookings, curriculum questions, collaborations — we'd love to hear from you.</p>
+      </div>
 
-        <form class="mt-6 grid gap-4" action="https://formspree.io/f/xzzagaqb" method="POST">
-          <div class="grid md:grid-cols-2 gap-4">
-            <input required class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your name" name="name" />
-            <input required type="email" class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Your email" name="email" />
+      <div class="contact-card reveal">
+        <form class="contact-form" action="https://formspree.io/f/xzzagaqb" method="POST">
+          <div class="contact-row">
+            <input required placeholder="Your name" name="name" />
+            <input required type="email" placeholder="Your email" name="email" />
           </div>
-
-          <input class="w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="Organization / School / Masjid (optional)" name="org" />
-
-          <select class="w-full rounded-xl border border-slate-300 px-3 py-2" name="topic">
+          <input placeholder="Organization / School / Masjid (optional)" name="org" />
+          <select name="topic">
             <option value="booking">Live booking inquiry</option>
+            <option value="app">App feedback / question</option>
             <option value="shop">Printables / Payhip question</option>
             <option value="collab">Collaboration</option>
             <option value="other">Other</option>
           </select>
-
-          <textarea required class="w-full rounded-xl border border-slate-300 px-3 py-2 min-h-[120px]" placeholder="Message" name="message"></textarea>
-
-          <button type="submit" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-brand-blue text-white font-extrabold shadow hover:bg-blue-700">
-            <i data-lucide="mail" class="w-5 h-5"></i> Send Message
+          <textarea required placeholder="Your message..." name="message"></textarea>
+          <button type="submit" class="btn btn-secondary btn-lg" style="width:100%">
+            <i data-lucide="send" style="width:18px;height:18px"></i> Send Message
           </button>
-
-          <p class="text-xs text-slate-500">
-            Prefer social? DM us on
-            <a class="underline" href="https://www.instagram.com/shamsandlaylah/" target="_blank" rel="noopener">Instagram</a>.
+          <p class="contact-note">
+            Prefer social? DM us on <a href="https://www.instagram.com/shamsandlaylah/" target="_blank">Instagram</a>.
           </p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-10 border-t border-slate-200 bg-white/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-slate-600">© Shams &amp; Laylah, 2025 • All rights reserved</div>
-      <div class="flex items-center gap-4 text-sm">
-        <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="youtube" class="w-4 h-4"></i> YouTube</a>
-        <a href="https://www.instagram.com/shamsandlaylah/" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
-        <a href="https://payhip.com/ShamsandLaylah" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1 hover:text-brand-orange"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Payhip</a>
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span>Shams & Laylah ☀️🌙</span>
+        <p>Joyful puppet stories that help kids know and love Allah. Watch, play, print, and experience live.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#how">How It Works</a>
+        <a href="#videos">Watch Episodes</a>
+        <a href="https://app.shamsandlaylah.com" target="_blank">App</a>
+        <a href="#shop">Shop</a>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/shamsandlaylah/" target="_blank">Instagram</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <a href="https://payhip.com/ShamsandLaylah" target="_blank">Payhip Store</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Book a Live Show</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Shams & Laylah. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@ShamsandLaylah" target="_blank" aria-label="YouTube"><i data-lucide="youtube" style="width:18px;height:18px"></i></a>
+        <a href="https://www.instagram.com/shamsandlaylah/" target="_blank" aria-label="Instagram"><i data-lucide="instagram" style="width:18px;height:18px"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Initialize Lucide icons
     lucide.createIcons();
+
+    // Navbar scroll effect + show app btn on scroll
+    const navbar = document.getElementById('navbar');
+    const navAppBtn = document.getElementById('navAppBtn');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+      if (navAppBtn) navAppBtn.style.display = window.scrollY > 400 ? 'inline-flex' : 'none';
+    });
+
+    // Mobile menu
+    function toggleMobile() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    function closeMobile(e) {
+      if (e.target === document.getElementById('mobileMenu')) toggleMobile();
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Active nav link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
   </script>
+
 </body>
 </html>
