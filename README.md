@@ -1,6 +1,6 @@
 # 🌙 Shams & Laylah Website
 
-This is the official website for **Shams & Laylah** — joyful puppet stories that help kids love and know Allah through songs, stories, and curriculums.
+Shams & Laylah is an interactive Islamic learning platform for kids, currently deployed as a web MVP and being wrapped for iOS with in-app subscriptions.
 
 ## ⚡ Tech Stack
 - **HTML5** + **Tailwind CSS**  
